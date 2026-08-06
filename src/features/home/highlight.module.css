@@ -1,0 +1,193 @@
+.skillHighlight {
+  --slot-distance: 6rem;
+  --bottom-grid-row-height: 60px;
+  display: grid;
+  max-width: 650px;
+  min-width: 380px;
+  width: 100%;
+
+  grid-template-rows:
+    minmax(calc(var(--slot-distance) * 3), auto)
+    repeat(2, minmax(var(--bottom-grid-row-height), auto));
+  align-items: center;
+  justify-items: flex-start;
+
+  grid-area: highlights;
+  padding-left: 1rem;
+  position: relative;
+}
+.highlightViewport {
+  /* position: relative; */
+  /* overflow: hidden; */
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+
+  /* border: 1px solid red; */
+}
+
+.vScrollLine {
+  position: absolute;
+  top: 0;
+  left: -0.25rem;
+  width: 0.15rem;
+  height: 100%;
+  max-height: calc(var(--slot-distance) * 3);
+
+  background: linear-gradient(
+    transparent,
+    #17318e 5%,
+    #276190,
+    transparent 95%
+  );
+  border-radius: 20px;
+}
+
+.vScrollDot {
+  position: absolute;
+  left: -0.45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50px;
+  background-color: #2a49af;
+  display: block;
+  background-clip: content-box;
+  padding: 0.1rem;
+  border: 1px solid #276190;
+  opacity: 0.5;
+}
+.vScrollLine > .vScrollDot:first-child {
+  background-color: #3952ae;
+  padding: 0.2rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  left: -0.55rem;
+  top: 15%;
+  opacity: 0.9;
+}
+.vScrollLine > .vScrollDot:last-child {
+  top: 85%;
+  width: 0.75rem;
+  height: 0.75rem;
+  opacity: 0.4;
+  left: -0.3rem;
+}
+
+.vScrollDotAnimation > .vScrollDot:first-child {
+  animation: shiftUpFadeOut var(--animation-duration) linear;
+}
+
+.vScrollDotAnimation > .vScrollDot:not(:first-child) {
+  animation: shiftUpFadeIn var(--animation-duration) linear;
+}
+
+.highlightTitle {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+
+  align-content: center;
+  margin: 0;
+
+  transition: transform var(--animation-duration) ease;
+  will-change: transform;
+  padding-top: 0.5rem;
+  z-index: 1;
+}
+.highlightTitleText {
+  font-size: 2.25rem;
+  line-height: 1;
+  min-height: 100%;
+}
+.highlightViewport .highlightTitle:nth-child(2) .highlightTitleText {
+  opacity: 0.3;
+  font-size: 2rem;
+}
+
+.highlightViewport .highlightTitle:nth-child(3) .highlightTitleText {
+  opacity: 0.1;
+  font-size: 1.75rem;
+}
+
+.skillTags {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+.skillTags > span {
+  border-radius: 8px;
+  border: 1px solid #000000;
+  background-color: #161616;
+
+  font-size: 0.9rem;
+  color: #dbdbdb;
+  padding: 0.5rem 1rem;
+}
+
+.viewProjectButton {
+  border-radius: 8px;
+  border: 1px solid #000000;
+  background-color: #0e2b41;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #dbdbdb;
+  padding: 0.75rem 1rem;
+
+  cursor: pointer;
+}
+.viewProjectButton:hover {
+  transform: translateY(-1px);
+}
+
+.shrinkAnimation {
+  animation: shrink var(--animation-duration) ease;
+  z-index: 0;
+  position: relative;
+  display: inline-block;
+}
+
+@keyframes shrink {
+  from {
+    scale: 0.8;
+    opacity: 0.8;
+  }
+
+  to {
+    scale: 0.1;
+    opacity: 0.1;
+  }
+}
+
+@keyframes shiftUpFadeOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+    scale: 1;
+  }
+
+  to {
+    transform: translateY(-5.5rem);
+    opacity: 0;
+    scale: 0.2;
+  }
+}
+@keyframes shiftUpFadeIn {
+  from {
+    transform: translateY(0);
+    opacity: 0.25;
+    scale: 0.9;
+  }
+
+  to {
+    transform: translateY(-5.5rem);
+    opacity: 1;
+    scale: 1.2;
+  }
+}
