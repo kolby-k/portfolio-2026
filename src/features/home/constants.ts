@@ -8,17 +8,11 @@ import NHLGoalStatsImage from "../../assets/nhl-goal-stats.png";
 import GretzkyDashboardImage from "../../assets/gretzky-dashboard.png";
 import EnesWorldMapImage from "../../assets/enes-world-map.jpg";
 
+import ImagePlaceholder from "../../assets/placeholder.png";
+
 export const ANIMATION_DURATION = 500;
 
 const fullstackProjects: ProjectCardProperties[] = [
-  {
-    image: SummarizeImage,
-    type: "Web App",
-    title: "Summarizer",
-    description:
-      "Paste the URL of an online article and get a summary in seconds",
-    path: "/projects/summarizer",
-  },
   {
     image: EvolveImage,
     type: "Mobile App",
@@ -28,7 +22,16 @@ const fullstackProjects: ProjectCardProperties[] = [
     path: "/projects/evolve-workout-tracker",
   },
   {
-    image: WhatTheTempImage,
+    image: SummarizeImage,
+    type: "Web App",
+    title: "Summarizer",
+    description:
+      "Paste the URL of an online article and get a summary in seconds",
+    path: "/projects/summarizer",
+  },
+
+  {
+    image: ImagePlaceholder,
     type: "Case Study",
     title: "Project 3",
     description:
@@ -39,20 +42,20 @@ const fullstackProjects: ProjectCardProperties[] = [
 
 const frontendProjects: ProjectCardProperties[] = [
   {
-    image: GaltonBoardImage,
-    type: "Mobile App",
-    title: "Galton Board Simulator",
-    description:
-      "Visualize how normal distribution patterns arise from random chance",
-    path: "/projects/galton-board",
-  },
-  {
     image: DeveloperToolkitImage,
     type: "Web App",
     title: "Developer Toolkit",
     description:
       "A collection of common tools and utilties to assist with fullstack development",
     path: "/projects/developer-toolkit",
+  },
+  {
+    image: GaltonBoardImage,
+    type: "Case Study",
+    title: "Galton Board Simulator",
+    description:
+      "Visualize how normal distribution patterns arise from random chance",
+    path: "/projects/galton-board",
   },
   {
     image: WhatTheTempImage,

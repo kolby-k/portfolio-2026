@@ -1,0 +1,60 @@
+.icon-tag {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+
+  cursor: default;
+}
+.icon {
+  font-size: 1.25rem;
+}
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.4rem;
+  border-radius: 30px;
+  border: 1px solid;
+
+  cursor: default;
+}
+
+.blue_tag {
+  background-color: #094e98;
+  border-color: #003f96;
+
+  color: #b0d6ff;
+
+  box-shadow: 0 0 8px 4px var(--blue-shadow);
+}
+
+.green_tag {
+  background-color: #2f9809;
+  border-color: #23970e;
+
+  color: #bcfec8;
+
+  box-shadow: 0 0 8px 4px var(--green-shadow);
+}
+
+.purple_tag {
+  background-color: #360998;
+  border-color: #4b0096;
+
+  color: #f1c0ff;
+
+  box-shadow: 0 0 8px 4px var(--purple-shadow);
+}
+
+.orange_tag {
+  background-color: #986b09;
+  border-color: #965c00;
+
+  color: #ffe2c0;
+
+  box-shadow: 0 0 8px 4px var(--orange-shadow);
+}

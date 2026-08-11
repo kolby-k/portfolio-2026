@@ -76,7 +76,7 @@ function Hero() {
           disabled={isAnimating}
           className={styles.arrowButton}
         >
-          I Like to ..
+          I like to ..
         </button>
 
         <Highlight
@@ -87,8 +87,9 @@ function Hero() {
           direction={direction}
         />
       </div>
-      <div className={styles.relatedProjects}>
-        <h3>Project Showcase</h3>
+      <span className={styles.heroDivider}></span>
+      <div className={styles.featureProjects}>
+        <h3>Featured Projects</h3>
 
         <div className={styles.projectCards}>
           {focusProjectShowcase.projects.map((project) => (

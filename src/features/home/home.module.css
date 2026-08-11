@@ -1,5 +1,6 @@
 .heroContainer {
   height: 100%;
+  min-width: var(--card-width);
 
   display: flex;
   flex-wrap: wrap;
@@ -8,11 +9,15 @@
   column-gap: 2rem;
   padding: 0.5rem;
   padding-top: 2rem;
+
+  --card-width: 360px;
+  --card-height: 380px;
 }
 
 .heroContent {
   display: flex;
   flex-direction: column;
+  flex: 1;
   align-items: center;
   gap: 1.5rem;
   padding: 1rem;
@@ -22,87 +27,177 @@
   justify-content: flex-start;
   position: relative;
 }
-
-.arrowButton {
-  font-size: 1.25rem;
-  width: 300px;
-  border-radius: 10px;
-  height: 35px;
-
-  border: 1px solid var(--border);
-  cursor: pointer;
-
-  align-self: center;
-  font-size: 1rem;
+.heroDivider {
+  content: "";
+  background: linear-gradient(transparent, var(--border), transparent);
+  padding: 0.5px;
+  width: 1px;
 }
 
-.relatedProjects {
+.arrowButton {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+
+  border-radius: 20px;
+  width: 150px;
+  height: 40px;
+
+  background: linear-gradient(oklch(0.2 0.1 264.05), var(--bg-secondary));
+  border: 1px solid var(--card-border);
+  cursor: pointer;
+  box-shadow: 2px 4px 20px 8px var(--blue-shadow-2);
+}
+.arrowButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 3px 6px 30px 16px var(--blue-shadow-2);
+}
+
+.featureProjects {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: flex-start;
 
   width: 100%;
-  max-width: 700px;
+  max-width: calc(var(--card-width) * 2 + 4rem);
 
   height: 100%;
   padding: 0.5rem;
   gap: 1rem;
-
-  grid-area: related;
+  position: relative;
 }
-.relatedProjects > h3 {
-  font-size: 1.2rem;
+.featureProjects > h3 {
+  font-size: 1.1rem;
   text-align: center;
+  font-weight: 400;
+}
+.featureProjects > h3::after {
+  content: "";
+  text-align: right;
+  padding: 0.5px;
+  background-color: var(--border);
+  width: 50%;
+  max-width: 350px;
+  position: absolute;
+  margin-left: 1rem;
+  top: calc(1rem + 2px);
 }
 .projectCards {
   width: 100%;
-  max-width: 600px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--card-width)), 1fr));
   gap: 2rem;
   justify-items: center;
+  justify-content: center;
+}
+.card:nth-child(3) {
+  grid-column: 1/-1;
+}
+.card {
+  --card-fade-duration: 500ms;
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  box-shadow: 2px 4px 20px 8px var(--blue-shadow);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  border-radius: 6px;
+  opacity: 0;
+
+  background: linear-gradient(
+    135deg,
+    var(--card-border-surface-1),
+    var(--card-border-surface-2),
+    var(--card-border-surface-1)
+  );
+  background-size: 300% 150%;
+  animation:
+    fadeIn var(--card-fade-duration) forwards,
+    animatedBorder 12s var(--card-fade-duration) infinite linear;
+}
+.card:hover {
+  transform: translateY(-2px);
+  scale: 1.02;
+  box-shadow: 2px 4px 20px 10px var(--blue-shadow-2);
 }
 
-.card {
-  border: 1px solid var(--card-border);
+.cardContent {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
   border-radius: 4px;
-  background-color: var(--card-bg);
+
+  background: linear-gradient(
+    45deg,
+    oklch(0.05 0.03 104.05),
+    oklch(0.2 0.04 279.92)
+  );
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 1rem;
-  gap: 1rem;
+  align-items: flex-start;
 
-  width: 280px;
-  height: 300px;
-  position: relative;
-  /* padding bottom based on card button height + padding */
-  padding-bottom: 55px;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  opacity: 1;
+
+  animation: fadeIn var(--card-fade-duration) ease-out;
 }
-.card > img {
+@keyframes animatedBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 0%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.cardContent > img {
   height: auto;
   width: 100%;
   max-width: 1080px;
+  aspect-ratio: 16 / 9;
+  border-radius: inherit;
+}
+.cardDivider {
+  width: 80%;
+  height: 2px;
+  margin: 0 auto 4px;
+  background-color: var(--card-border-surface-1);
+  opacity: 0.4;
 }
 
-.card > a {
-  font-size: 0.9rem;
-  color: #9cd4ff;
+.path {
+  font-size: 0.95rem;
+  color: #62b0ff;
   text-align: center;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
 }
-.projectTag {
-  font-size: 0.7rem;
-  color: #97c3ee;
-  background: linear-gradient(#1359b5, #0d132a);
-  border: 1px solid #234067;
-  padding: 0.5rem 0.6rem;
-  border-radius: 25px;
-  max-width: fit-content;
-  height: 35px;
-}
+
 .projectTitle {
   font-size: 1.2rem;
   font-weight: 600;
@@ -112,10 +207,26 @@
 }
 
 .projectDescription {
-  font-size: 1rem;
-  color: var(--text);
+  font-size: 0.9rem;
+  color: var(--text-highlight);
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 3;
   overflow: hidden;
+}
+
+@media screen and (max-width: 830px) {
+  .featureProjects > h3 {
+    margin-left: 25%;
+  }
+
+  .featureProjects > h3::after {
+    max-width: 20%;
+  }
+}
+
+@media screen and (max-width: 1308px) {
+  .heroDivider {
+    height: 1px;
+  }
 }

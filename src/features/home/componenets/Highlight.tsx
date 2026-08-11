@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import styles from "../highlight.module.css";
 import type { ProjectShowcase } from "../home.types";
 import { ANIMATION_DURATION } from "../constants";
+import IconTag from "../../../components/IconTag";
 
 type HighlightProps = {
   projects: ProjectShowcase[];
@@ -172,7 +173,11 @@ function Highlight({
 
       <div className={styles.skillTags}>
         {currentProject.skills.map((label) => (
-          <span key={`${currentProject.id}-${label}`}>{label}</span>
+          <IconTag
+            key={`${currentProject.id}-${label}`}
+            label={label}
+            icon={label}
+          />
         ))}
       </div>
 
