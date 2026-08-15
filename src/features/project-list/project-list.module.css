@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 50dvh;
+  width: 100%;
+
+  border: 1px solid red;
+
+  --card-width: 420px;
+  --card-height: 280px;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.searchTools {
+  display: flex;
+  min-height: 50px;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.searchTools > span {
+  min-width: 100px;
+  min-height: 50px;
+}
+
+.projectList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(var(--card-width), 1fr));
+
+  justify-items: center;
+
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.projectCardWrapper {
+  --card-fade-duration: 500ms;
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  box-shadow: 2px 4px 20px 8px var(--glow-soft);
+}
+
+.projectCardContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.projectImage {
+  height: auto;
+  width: 80%;
+  max-width: 1080px;
+  aspect-ratio: 16 / 9;
+  border-radius: inherit;
+  padding-top: 1rem;
+}

@@ -1,5 +1,5 @@
-import { PROJECTS } from "./constants";
-import type { ProjectShowcase } from "./home.types";
+import { PROJECTS } from "../../constants";
+import type { ProjectShowcase } from "./hero.types";
 
 export function getOrderedHighlights(
   currentIndex: number,

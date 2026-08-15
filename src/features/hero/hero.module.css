@@ -29,7 +29,7 @@
 }
 .heroDivider {
   content: "";
-  background: linear-gradient(transparent, var(--border), transparent);
+  background: linear-gradient(transparent, var(--divider), transparent);
   padding: 0.5px;
   width: 1px;
 }
@@ -37,20 +37,20 @@
 .arrowButton {
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 
   border-radius: 20px;
   width: 150px;
   height: 40px;
 
-  background: linear-gradient(oklch(0.2 0.1 264.05), var(--bg-secondary));
+  background: linear-gradient(var(--surface), var(--surface-raised));
   border: 1px solid var(--card-border);
   cursor: pointer;
-  box-shadow: 2px 4px 20px 8px var(--blue-shadow-2);
+  box-shadow: 2px 4px 20px 8px var(--glow-soft);
 }
 .arrowButton:hover {
   transform: translateY(-1px);
-  box-shadow: 3px 6px 30px 16px var(--blue-shadow-2);
+  box-shadow: 3px 6px 30px 16px var(--glow);
 }
 
 .featureProjects {
@@ -76,7 +76,7 @@
   content: "";
   text-align: right;
   padding: 0.5px;
-  background-color: var(--border);
+  background-color: var(--divider);
   width: 50%;
   max-width: 350px;
   position: absolute;
@@ -99,31 +99,31 @@
   width: var(--card-width);
   height: var(--card-height);
   position: relative;
-  box-shadow: 2px 4px 20px 8px var(--blue-shadow);
+  box-shadow: 2px 4px 20px 8px var(--glow-soft);
 }
 .card::before {
   content: "";
   position: absolute;
-  inset: -3px;
+  inset: -2px;
   z-index: -1;
   border-radius: 6px;
   opacity: 0;
 
   background: linear-gradient(
-    135deg,
-    var(--card-border-surface-1),
-    var(--card-border-surface-2),
-    var(--card-border-surface-1)
+    270deg,
+    var(--border),
+    var(--surface),
+    var(--primary-dark)
   );
   background-size: 300% 150%;
   animation:
     fadeIn var(--card-fade-duration) forwards,
-    animatedBorder 12s var(--card-fade-duration) infinite linear;
+    animatedBorder 8s var(--card-fade-duration) infinite linear;
 }
 .card:hover {
   transform: translateY(-2px);
   scale: 1.02;
-  box-shadow: 2px 4px 20px 10px var(--blue-shadow-2);
+  box-shadow: 2px 4px 20px 15px var(--glow-soft);
 }
 
 .cardContent {
@@ -135,8 +135,8 @@
 
   background: linear-gradient(
     45deg,
-    oklch(0.05 0.03 104.05),
-    oklch(0.2 0.04 279.92)
+    var(--surface-raised) 20%,
+    var(--surface-hover)
   );
 
   display: flex;
@@ -180,11 +180,10 @@
   border-radius: inherit;
 }
 .cardDivider {
-  width: 80%;
+  width: 90%;
   height: 2px;
   margin: 0 auto 4px;
-  background-color: var(--card-border-surface-1);
-  opacity: 0.4;
+  background-color: var(--divider);
 }
 
 .path {
@@ -196,6 +195,10 @@
   position: absolute;
   bottom: 5%;
   left: 5%;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .projectTitle {
@@ -203,16 +206,21 @@
   font-weight: 600;
   color: var(--text-highlight);
   display: inline;
-  padding-right: 1rem;
+  margin-right: 1rem;
+  padding: 0.25rem;
 }
 
 .projectDescription {
-  font-size: 0.9rem;
-  color: var(--text-highlight);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   overflow: hidden;
+}
+
+.cardTag {
+  margin: 0 0.5rem 0.25rem;
 }
 
 @media screen and (max-width: 830px) {

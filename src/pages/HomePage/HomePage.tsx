@@ -1,4 +1,4 @@
-import Hero from "../../features/home/componenets/Hero";
+import Hero from "../../features/hero/Hero";
 
 function HomePage() {
   return (

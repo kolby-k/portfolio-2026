@@ -58,6 +58,63 @@
     --purple-shadow: #482c798d;
 
     --orange-shadow: #796c2c8d;
+
+    /* Backgrounds */
+    --bg: #02060f;
+    --bg-deep: #010205;
+    --surface: #0d0f15;
+    --surface-raised: #13151a;
+    --surface-hover: #19212e;
+
+    /* Borders / dividers */
+    --border: #27344b;
+    --border-subtle: #1c2533;
+    --divider: #303844;
+
+    /* Text */
+    --text-primary: #f4f6fa;
+    --text-secondary: #b5bbc5;
+    --text-muted: #6b7482;
+    --text-disabled: #343b48;
+
+    /* Primary blue */
+    --primary: #0872e4;
+    --primary-bright: #1698ff;
+    --primary-dark: #0458cd;
+    --primary-soft: #12345f;
+
+    /* Blue glow */
+    --glow: rgba(22, 152, 255, 0.4);
+    --glow-soft: rgba(22, 152, 255, 0.15);
+
+    /* Interactive states */
+    --focus: #1698ff;
+    --hover-overlay: rgba(255, 255, 255, 0.04);
+    --active-overlay: rgba(22, 152, 255, 0.1);
+
+    /* Blue */
+    --blue-tag-bg: #102b52;
+    --blue-tag-border: #1d4f82;
+    --blue-tag-text: #8fc7ff;
+    --blue-tag-shadow: rgba(22, 152, 255, 0.12);
+
+    /* Green */
+    --green-tag-bg: #163b2b;
+    --green-tag-border: #275b43;
+    --green-tag-text: #83dda5;
+    --green-tag-shadow: rgba(84, 207, 132, 0.1);
+
+    /* Purple */
+    --purple-tag-bg: #34204f;
+    --purple-tag-border: #59377d;
+    --purple-tag-text: #d4a0ff;
+    --purple-tag-shadow: rgba(181, 104, 255, 0.1);
+
+    /* Orange */
+    --orange-tag-bg: #493019;
+    --orange-tag-border: #76502a;
+    --orange-tag-text: #f3bd7a;
+    --orange-tag-shadow: rgba(235, 158, 73, 0.1);
   }
 }
 

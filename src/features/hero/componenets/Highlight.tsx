@@ -1,8 +1,9 @@
 import { useLayoutEffect, useRef } from "react";
 import styles from "../highlight.module.css";
-import type { ProjectShowcase } from "../home.types";
-import { ANIMATION_DURATION } from "../constants";
+import type { ProjectShowcase } from "../hero.types";
+import { ANIMATION_DURATION } from "../../../constants";
 import IconTag from "../../../components/IconTag";
+import { Link } from "react-router-dom";
 
 type HighlightProps = {
   projects: ProjectShowcase[];
@@ -182,7 +183,7 @@ function Highlight({
       </div>
 
       <button type="button" className={styles.viewProjectButton}>
-        View related projects →
+        <Link to="/projects">View related projects →</Link>
       </button>
     </div>
   );

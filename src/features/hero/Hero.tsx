@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
-import styles from "../home.module.css";
-import ProjectCard from "./ProjectCard";
-import Highlight from "./Highlight";
-import { PROJECTS } from "../constants";
-import type { ProjectShowcase } from "../home.types";
+import styles from "./hero.module.css";
+import ProjectCard from "./componenets/ProjectCard";
+import Highlight from "./componenets/Highlight";
+import { PROJECTS } from "../../constants";
+import type { ProjectShowcase } from "./hero.types";
 
 function Hero() {
   const [projectList, setProjectList] = useState<ProjectShowcase[]>(PROJECTS);
