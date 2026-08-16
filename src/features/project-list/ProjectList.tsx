@@ -1,36 +1,33 @@
-import { Link } from "react-router-dom";
-import { PROJECTS } from "../../constants";
 import styles from "./project-list.module.css";
+import ProjectListCard from "./components/ProjectListCard";
+import useFilteredProjects from "../../hooks/useFilteredProjects";
+import TechnologyFilter from "./components/TechnologyFilter";
 
 function ProjectList() {
+  const { projects, add, remove, clear, active, options } =
+    useFilteredProjects();
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h2>Project List</h2>
+        <h2>Past Projects</h2>
+        <p className="description">Explore some of my favourite past work! </p>
         <div className={styles.searchTools}>
-          <span> search input </span>
-          <span> tag filters </span>
+          <TechnologyFilter
+            add={add}
+            remove={remove}
+            clear={clear}
+            active={active}
+            options={options}
+          />
         </div>
       </div>
       <div className={styles.projectList}>
-        {PROJECTS.flatMap((p) =>
-          p.projects.map((project) => {
-            return (
-              <Link
-                key={`project-${project.title}`}
-                className={styles.projectCardWrapper}
-                to={project.path}
-              >
-                <div className={styles.projectCardContent}>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <img src={project.image} className={styles.projectImage} />
-                </div>
-              </Link>
-            );
-          }),
-        )}
+        {projects.map((p) => (
+          <ProjectListCard key={`${p.id}`} project={p} />
+        ))}
       </div>
+      <div className="h-divider"></div>
     </div>
   );
 }

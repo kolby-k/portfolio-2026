@@ -125,7 +125,9 @@
   margin: 0;
   padding: 0;
 }
-
+ul {
+  padding: 1rem;
+}
 #root {
   width: 100%;
   min-height: 100svh;
@@ -134,4 +136,28 @@
 .page {
   width: min(100% - 2rem, 1500px);
   margin-inline: auto;
+}
+
+.description {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.h-divider {
+  background: var(--divider);
+  height: 1px;
+  width: 100%;
+  min-width: 50px;
+  margin: 1rem auto;
+}
+
+/* TODO find a font for this */
+.fancy-title {
+  font-family: monospace;
+}
+
+/* Make icon same size as font */
+.font-icon {
+  font-size: inherit;
+  color: inherit;
 }

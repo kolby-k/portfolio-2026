@@ -4,6 +4,7 @@ import type { ProjectShowcase } from "../hero.types";
 import { ANIMATION_DURATION } from "../../../constants";
 import IconTag from "../../../components/IconTag";
 import { Link } from "react-router-dom";
+import { BsArrowRight } from "react-icons/bs";
 
 type HighlightProps = {
   projects: ProjectShowcase[];
@@ -182,11 +183,53 @@ function Highlight({
         ))}
       </div>
 
-      <button type="button" className={styles.viewProjectButton}>
-        <Link to="/projects">View related projects →</Link>
-      </button>
+      <Link to={currentProject.path} className={styles.viewProjectButton}>
+        View related projects <BsArrowRight />
+      </Link>
     </div>
   );
 }
 
 export default Highlight;
+
+/* 
+referrence if needed
+- make url search params for each technology in a project for the showcase
+ const techParams = useMemo(() => {
+    const technologies = new Set(
+      currentProject.projects.flatMap((project) =>
+        Object.values(project.technology).flatMap((t) => t),
+      ),
+    );
+    const params = new URLSearchParams();
+    technologies.forEach((tech) => {
+      params.append("tech", String(tech));
+    });
+    return params.toString();
+  }, [currentProject]);
+
+  - make url search params for types...
+const typeParams = useMemo(() => {
+    const typeOptions = new Set(
+      currentProject.projects.flatMap((project) => project.type),
+    );
+    const params = new URLSearchParams();
+    typeOptions.forEach((type) => {
+      params.append("type", String(type));
+    });
+    return params.toString();
+  }, [currentProject]);
+
+
+  const focusParams = useMemo(() => {
+    const focusOptions = new Set(
+      currentProject.projects.map((project) => project.focus),
+    );
+    const params = new URLSearchParams();
+    focusOptions.forEach((focus) => {
+      params.append("focus", String(focus));
+    });
+    return params.toString();
+  }, [currentProject]);
+
+  */

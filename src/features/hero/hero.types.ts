@@ -9,7 +9,7 @@ export type ProjectShowcase = {
 };
 
 export type HighlightPlaceholder = {
-  id: null;
+  showcaseId: null;
   highlight: null;
   skills: null;
   path: null;

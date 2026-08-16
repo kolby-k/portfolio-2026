@@ -1,10 +1,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 50dvh;
+  min-height: 100dvh;
   width: 100%;
 
-  border: 1px solid red;
+  padding-bottom: 2rem;
 
   --card-width: 420px;
   --card-height: 280px;
@@ -15,51 +15,179 @@
   text-align: center;
   padding: 1rem;
 }
+.header > h2 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
 
 .searchTools {
   display: flex;
+  flex-direction: column;
   min-height: 50px;
   width: 100%;
   justify-content: space-evenly;
-}
-.searchTools > span {
-  min-width: 100px;
-  min-height: 50px;
+  background: linear-gradient(transparent, var(--surface), var(--bg-deep));
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  margin: 1rem auto;
 }
 
 .projectList {
   display: grid;
-  grid-template-columns: repeat(3, minmax(var(--card-width), 1fr));
+  min-width: 380px;
+  width: 100%;
 
+  margin: auto;
   justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
 
   padding: 1rem;
-  gap: 1rem;
+  gap: 3rem 1rem;
 }
 
 .projectCardWrapper {
-  --card-fade-duration: 500ms;
   width: var(--card-width);
   height: var(--card-height);
-  position: relative;
   box-shadow: 2px 4px 20px 8px var(--glow-soft);
+  position: relative;
+  border-radius: inherit;
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.projectCardWrapper:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 2px 4px 20px 15px var(--glow-soft);
+}
+
+.projectCardWrapper::before {
+  content: "";
+  background: linear-gradient(
+    135deg,
+    var(--border-subtle),
+    var(--surface),
+    var(--divider)
+  );
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: 6px;
 }
 
 .projectCardContent {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100%;
-  padding: 1rem;
-  align-items: center;
-  gap: 0.5rem;
+  overflow: hidden;
+
+  border-radius: 4px;
+  background: linear-gradient(
+    45deg,
+    var(--surface-raised) 20%,
+    var(--surface-hover)
+  );
 }
 
+.textContainer {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.textContainer > h3 {
+  color: var(--text-primary);
+  font-size: 1.45rem;
+}
+.textContainer > p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+.imageWrapper {
+  position: relative;
+  margin-top: 1rem;
+  filter: blur(1px);
+
+  overflow: hidden;
+}
+.projectCardWrapper:hover .imageWrapper {
+  filter: blur(0);
+  scale: 1.02;
+}
+.projectCardWrapper:hover .imageWrapper::after {
+  background-color: var(--hover-overlay);
+}
+.imageWrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--active-overlay);
+}
 .projectImage {
-  height: auto;
-  width: 80%;
-  max-width: 1080px;
+  width: auto;
+  width: var(--card-width);
   aspect-ratio: 16 / 9;
   border-radius: inherit;
-  padding-top: 1rem;
+}
+
+.techFilterWrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.5rem;
+}
+.techFilterSection {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+.techFilterSection > h4 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.techFilterSection span:first-of-type {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem 0.75rem;
+}
+
+.techFilterTag {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-raised);
+
+  color: var(--text-primary);
+
+  cursor: default;
+
+  box-shadow: 0 0 20px 4px var(--surface-raised);
+  cursor: pointer;
+}
+
+.techFilterTagActive {
+  background-color: var(--primary);
+}
+
+.clearButton {
+  font-size: 0.75rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 2%;
+  padding: 0.5rem 1rem;
+
+  background-color: var(--surface);
+  border-radius: 4px;
+
+  cursor: pointer;
 }

@@ -1,3 +1,33 @@
+.page-back-button,
+.nav-button {
+  text-decoration: none;
+  cursor: pointer;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 2rem;
+  left: 2%;
+
+  height: 35px;
+  min-width: 100px;
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
+
+  background-color: var(--surface);
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+.page-back-button:hover,
+.nav-button:hover {
+  background-color: var(--surface-raised);
+  border-color: var(--border);
+}
+
 .icon-tag {
   display: flex;
   gap: 1rem;
@@ -59,8 +89,17 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-
+  max-width: 1500px;
+  margin: auto;
+  overflow: hidden;
   align-items: center;
+}
+.project-page-content {
+  padding-top: 1rem;
+  max-width: 900px;
+
+  display: grid;
+  gap: 1rem;
 }
 .project-page-header {
   display: flex;
@@ -73,31 +112,6 @@
   padding-top: calc(2rem + 35px);
 
   position: relative;
-}
-
-.project-page-back-button {
-  text-decoration: none;
-  cursor: pointer;
-
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-
-  position: absolute;
-  top: 2rem;
-  left: 2%;
-
-  height: 35px;
-  width: 100px;
-
-  background-color: var(--surface);
-  border-radius: 4px;
-  border: 1px solid var(--border);
-  font-size: 1rem;
-  color: var(--text-secondary);
-}
-.project-page-back-button:hover {
-  background-color: var(--surface-raised);
 }
 
 .project-page-header > h3 {
@@ -139,6 +153,16 @@
 .project-page-links > a:hover {
   background-color: var(--surface-hover);
 }
-.project-page-content {
-  padding-top: 1rem;
+
+.project-page-section {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.project-page-section > h2 {
+  font-size: 1.35rem;
+}
+.project-page-section > p {
+  font-size: 1.15rem;
 }
