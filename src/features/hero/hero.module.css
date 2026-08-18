@@ -47,6 +47,11 @@
   border: 1px solid var(--card-border);
   cursor: pointer;
   box-shadow: 2px 4px 20px 8px var(--glow-soft);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 .arrowButton:hover {
   transform: translateY(-1px);
@@ -199,28 +204,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.projectTitle {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-highlight);
-  display: inline;
-  margin-right: 1rem;
-  padding: 0.25rem;
-}
-
-.projectDescription {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
-.cardTag {
-  margin: 0 0.5rem 0.25rem;
 }
 
 @media screen and (max-width: 830px) {

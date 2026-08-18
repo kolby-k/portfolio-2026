@@ -1,14 +1,6 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { PROJECTS } from "../constants";
-import {
-  type ProjectCardProperties,
-  type ProjectFocus,
-  type ProjectType,
-  type Technology,
-  TECHNOLOGIES,
-  PROJECT_TYPES,
-  PROJECT_FOCUSES,
-} from "../types";
+import { PROJECT_TYPES, PROJECT_FOCUSES, LANGUAGES } from "../types";
 import type {
   FilterUpdate,
   FilterValueType,
@@ -16,102 +8,94 @@ import type {
 import { useSearchParams } from "react-router-dom";
 
 function useFilteredProjects() {
-  const [params] = useSearchParams();
+  const [params, setParams] = useSearchParams();
 
-  const initTechFilter = params
-    .getAll("tech")
-    .filter((tech): tech is Technology =>
-      TECHNOLOGIES.includes(tech as Technology),
-    );
+  const languageFilter = useMemo(
+    () => getValidParams(params, "languages", LANGUAGES),
+    [params],
+  );
 
-  const initFocusFilter = params
-    .getAll("focus")
-    .filter((focus): focus is ProjectFocus =>
-      PROJECT_FOCUSES.includes(focus as ProjectFocus),
-    );
+  const focusFilter = useMemo(
+    () => getValidParams(params, "focus", PROJECT_FOCUSES),
+    [params],
+  );
 
-  const initTypeFilter = params
-    .getAll("type")
-    .filter((type): type is ProjectType =>
-      PROJECT_TYPES.includes(type as ProjectType),
-    );
-
-  const [typeFilter, setTypeFilter] = useState<ProjectType[]>([
-    ...initTypeFilter,
-  ]);
-  const [focusFilter, setFocusFilter] = useState<ProjectFocus[]>([
-    ...initFocusFilter,
-  ]);
-  const [techFilter, setTechFilter] = useState<Technology[]>([
-    ...initTechFilter,
-  ]);
+  const typeFilter = useMemo(
+    () => getValidParams(params, "type", PROJECT_TYPES),
+    [params],
+  );
 
   const projectsToRender = useMemo(() => {
-    const allProjects = PROJECTS.flatMap((s) => s.projects);
-    // No filters -> display all projects
-    if (
-      noFilterApplied(typeFilter) &&
-      noFilterApplied(focusFilter) &&
-      noFilterApplied(techFilter)
-    )
-      return allProjects;
-    let filterProjects: ProjectCardProperties[] = [];
-    // Filter applied -> exclude projects w/out type > focus > tech
-    if (!noFilterApplied(typeFilter)) {
-      filterProjects = allProjects.filter((project) =>
-        typeFilter.includes(project.type),
-      );
-    }
-    if (!noFilterApplied(focusFilter)) {
-      filterProjects = allProjects.filter((project) =>
-        focusFilter.includes(project.focus),
-      );
-    }
-    if (!noFilterApplied(techFilter)) {
-      filterProjects = allProjects.filter((project) =>
-        Object.values(project.technology)
-          .flatMap((technologies) => technologies)
-          .some((t) => techFilter.includes(t) === true),
-      );
-    }
-    return filterProjects;
-  }, [techFilter, focusFilter, typeFilter, PROJECTS]);
+    const allProjects = PROJECTS.flatMap((section) => section.projects);
+
+    return allProjects.filter((project) => {
+      const matchesType =
+        typeFilter.length === 0 || typeFilter.includes(project.type);
+
+      const matchesFocus =
+        focusFilter.length === 0 || focusFilter.includes(project.focus);
+
+      const matchesLanguage =
+        languageFilter.length === 0 ||
+        languageFilter.some((language) =>
+          project.technology.languages?.includes(language),
+        );
+
+      return matchesType && matchesFocus && matchesLanguage;
+    });
+  }, [typeFilter, focusFilter, languageFilter]);
 
   function add({ list, value }: FilterUpdate) {
-    if (list === "type") {
-      setTypeFilter((prev) => [...prev, value]);
-    } else if (list === "focus") {
-      setFocusFilter((prev) => [...prev, value]);
-    } else if (list === "technology") {
-      setTechFilter((prev) => [...prev, value]);
-    }
+    setParams((prev) => {
+      const next = new URLSearchParams(prev);
+
+      if (!next.getAll(list).includes(value)) {
+        next.append(list, value);
+      }
+
+      return next;
+    });
   }
 
   function remove({ list, value }: FilterUpdate) {
-    if (list === "type") {
-      setTypeFilter((prev) => prev.filter((v) => v !== value));
-    } else if (list === "focus") {
-      setFocusFilter((prev) => prev.filter((v) => v !== value));
-    } else if (list === "technology") {
-      setTechFilter((prev) => prev.filter((v) => v !== value));
-    }
+    setParams((prev) => {
+      const next = new URLSearchParams(prev);
+
+      const remaining = next
+        .getAll(list)
+        .filter((current) => current !== value);
+
+      next.delete(list);
+
+      remaining.forEach((current) => {
+        next.append(list, current);
+      });
+
+      return next;
+    });
   }
 
   function clear() {
-    setFocusFilter([]);
-    setTypeFilter([]);
-    setTechFilter([]);
+    setParams((prev) => {
+      const next = new URLSearchParams(prev);
+
+      next.delete("type");
+      next.delete("focus");
+      next.delete("languages");
+
+      return next;
+    });
   }
 
   // The currently active filters regardless of type/focus/tech
   const active: FilterValueType[] = useMemo(() => {
-    return [...typeFilter, ...focusFilter, ...techFilter];
-  }, [typeFilter, focusFilter, techFilter]);
+    return [...typeFilter, ...focusFilter, ...languageFilter];
+  }, [typeFilter, focusFilter, languageFilter]);
 
   // ALL possible filters regardless of type/focus/tech
   const options: FilterValueType[] = useMemo(() => {
-    return [...PROJECT_TYPES, ...PROJECT_FOCUSES, ...TECHNOLOGIES];
-  }, [PROJECT_TYPES, PROJECT_FOCUSES, TECHNOLOGIES]);
+    return [...PROJECT_TYPES, ...PROJECT_FOCUSES, ...LANGUAGES];
+  }, []);
 
   return {
     projects: projectsToRender,
@@ -125,9 +109,12 @@ function useFilteredProjects() {
 
 export default useFilteredProjects;
 
-function noFilterApplied(
-  filters: ProjectFocus[] | ProjectType[] | Technology[],
-) {
-  if (filters.length === 0) return true;
-  return false;
+function getValidParams<T extends string>(
+  params: URLSearchParams,
+  key: string,
+  options: readonly T[],
+): T[] {
+  return params
+    .getAll(key)
+    .filter((value): value is T => options.includes(value as T));
 }

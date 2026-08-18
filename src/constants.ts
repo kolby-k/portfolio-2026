@@ -8,10 +8,19 @@ import GaltonBoardImage from "./assets/galton-board.png";
 import DeveloperToolkitImage from "./assets/developer-toolkit.png";
 import NHLGoalStatsImage from "./assets/nhl-goal-stats.png";
 import GretzkyDashboardImage from "./assets/gretzky-dashboard.png";
-import EnesWorldMapImage from "./assets/enes-world-map.jpg";
+// import EnesWorldMapImage from "./assets/enes-world-map.jpg";
 import MotionChartsImage from "./assets/motion-charts.png";
 
-// import ImagePlaceholder from "./assets/placeholder.png";
+import EvolveThumbnail from "./assets/evolve-card-thumbnail.png";
+import SummarizerThumbnail from "./assets/summarizer-card-thumbnail.png";
+import DeveloperToolkitThumbnail from "./assets/dev-toolkit-card-thumbnail.png";
+import GaltonBoardThumbnail from "./assets/galton-board-thumbnail.png";
+import WhatTheTempThumbnail from "./assets/what-the-temp-thumbnail.png";
+import GretzkyDashboardThumbnail from "./assets/gretzky-dashboard-thumbnail.png";
+import NHLGoalStatsThumbnail from "./assets/nhl-goal-stats-thumbnail.png";
+import MotionChartsThumbnail from "./assets/motion-charts-thumbnail.png";
+
+import ImagePlaceholder from "./assets/placeholder.png";
 
 export const ANIMATION_DURATION = 500;
 
@@ -19,18 +28,22 @@ const fullstackProjects: ProjectCardProperties[] = [
   {
     id: "project-1",
     image: EvolveImage,
+    thumbnail: EvolveThumbnail,
+    focus: "Full Stack",
     type: "Mobile App",
     title: "Evolve Workout Tracker",
     description:
       "An iOS app to log workouts, monitor progress, and manage workout routines.",
     path: "/projects/evolve-workout-tracker",
-    focus: "Full Stack",
     technology: {
-      languages: ["JavaScript"],
-      frameworks: ["Expo", "Express", "React Native"],
-      libraries: ["Redux Toolkit"],
+      languages: ["JavaScript", "SQL"],
+      frameworks: ["Expo", "React Native", "Express"],
+      libraries: ["Redux Toolkit", "Validator"],
       databases: ["PostgreSQL"],
       platforms: ["iOS"],
+      runtimes: ["Node.js"],
+      tools: [],
+      integrations: ["Apple Sign In", "StoreKit"],
     },
     urls: {
       git: "https://github.com/kolby-k/evolve-web",
@@ -41,19 +54,21 @@ const fullstackProjects: ProjectCardProperties[] = [
   {
     id: "project-2",
     image: SummarizeImage,
+    thumbnail: SummarizerThumbnail,
+    focus: "Full Stack",
     type: "Web App",
     title: "Summarizer",
     description: "Generate concise summaries of online articles from any URL.",
     path: "/projects/summarizer",
-    focus: "Full Stack",
-
     technology: {
       languages: ["TypeScript"],
-      frameworks: ["Express", "Next.js"],
-      libraries: ["Tailwind CSS", "Zod"],
+      frameworks: ["Next.js", "Express"],
+      libraries: ["Zod"],
       databases: ["Redis"],
       platforms: [],
-      integrations: ["OpenAI", "Google OAuth"],
+      runtimes: ["Node.js"],
+      tools: [],
+      integrations: ["OpenAI API", "Google OAuth"],
     },
     urls: {
       git: "https://github.com/kolby-k/summarizer-next-app",
@@ -61,46 +76,71 @@ const fullstackProjects: ProjectCardProperties[] = [
     },
   },
   {
-    id: "project-3",
-    image: EnesWorldMapImage,
+    id: "project-10",
+    image: ImagePlaceholder,
+    thumbnail: ImagePlaceholder,
+    focus: "Backend",
     type: "Web App",
-    title: "Enes World Map",
-    description: "Where do the rich and famous live?",
-    path: "/projects/enes-world-map",
-
-    focus: "Frontend",
+    title: "Miscrosft Teams Subscription Service",
+    description:
+      "Automate subscriptions for Teams meetings to transcribe and attendance events...",
+    path: "/projects/ms-teams-service",
     technology: {
       languages: ["JavaScript"],
-      frameworks: ["React"],
+      frameworks: ["Express"],
       libraries: [],
-      databases: ["PostgreSQL"],
+      databases: [],
       platforms: [],
-      integrations: ["Google Maps"],
+      runtimes: ["Node.js"],
+      tools: [],
+      integrations: ["Microsoft Graph", "OpenAI API", "Zoho CRM"],
     },
     urls: {
-      web: "https://enes-yilmazer-world-map.netlify.app/",
-      git: "https://github.com/kolby-k/Enes-World-Map",
+      web: "https://what-the-temp.netlify.app/",
+      git: "https://github.com/kolby-k/local-weather-app",
     },
   },
+  // {
+  //   id: "project-3",
+  //   image: EnesWorldMapImage,
+  //   focus: "Frontend",
+  //   type: "Web App",
+  //   title: "Enes World Map",
+  //   description: "Where do the rich and famous live?",
+  //   path: "/projects/enes-world-map",
+  //   technology: {
+  //     languages: ["JavaScript"],
+  //     frameworks: ["React"],
+  //     libraries: [],
+  //     databases: ["PostgreSQL"],
+  //     platforms: [],
+  //     runtimes: ["Node.js"],
+  //     tools: [],
+  //     integrations: ["Google Maps API"],
+  //   },
+  //   urls: {},
+  // },
 ];
 
 const frontendProjects: ProjectCardProperties[] = [
   {
     id: "project-4",
     image: DeveloperToolkitImage,
+    thumbnail: DeveloperToolkitThumbnail,
+    focus: "Frontend",
     type: "Web App",
     title: "Developer Toolkit",
     description:
       "A collection of practical tools and utilities for full-stack development.",
     path: "/projects/developer-toolkit",
-
-    focus: "Frontend",
     technology: {
       languages: ["TypeScript"],
       frameworks: ["React"],
       libraries: [],
       databases: [],
       platforms: [],
+      runtimes: ["Node.js"],
+      tools: [],
       integrations: [],
     },
     urls: {
@@ -111,19 +151,21 @@ const frontendProjects: ProjectCardProperties[] = [
   {
     id: "project-5",
     image: GaltonBoardImage,
+    thumbnail: GaltonBoardThumbnail,
+    focus: "Frontend",
     type: "Web App",
     title: "Galton Board Simulator",
     description:
       "An interactive simulation showing how repeated random outcomes form a binomial distribution.",
     path: "/projects/galton-board",
-
-    focus: "Frontend",
     technology: {
       languages: ["TypeScript"],
       frameworks: ["React"],
       libraries: [],
       databases: [],
       platforms: [],
+      runtimes: ["Node.js"],
+      tools: [],
       integrations: [],
     },
     urls: {
@@ -134,20 +176,22 @@ const frontendProjects: ProjectCardProperties[] = [
   {
     id: "project-6",
     image: WhatTheTempImage,
+    thumbnail: WhatTheTempThumbnail,
+    focus: "Frontend",
     type: "Web App",
     title: "What The Temp",
     description:
       "View local weather conditions and an hourly visual forecast for the day.",
     path: "/projects/what-the-temp",
-
-    focus: "Frontend",
     technology: {
       languages: ["TypeScript"],
       frameworks: ["React"],
-      libraries: ["Tailwind CSS"],
+      libraries: [],
       databases: [],
       platforms: [],
-      integrations: ["Open Meteo"],
+      runtimes: ["Node.js"],
+      tools: [],
+      integrations: ["Open-Meteo API"],
     },
     urls: {
       web: "https://what-the-temp.netlify.app/",
@@ -158,43 +202,23 @@ const frontendProjects: ProjectCardProperties[] = [
 
 const dataAnalyticsProjects: ProjectCardProperties[] = [
   {
-    id: "project-7",
-    image: MotionChartsImage,
-    type: "Web App",
-    title: "Motion Charts",
-    description:
-      "React.js client-side app for turning time-series data into customizable animated bar charts.",
-    path: "/projects/motion-charts",
-
-    focus: "Frontend",
-    technology: {
-      languages: ["TypeScript"],
-      frameworks: ["React"],
-      libraries: [],
-      databases: [],
-      platforms: [],
-      integrations: [],
-    },
-    urls: {
-      git: "https://github.com/kolby-k/motion-charts-app",
-    },
-  },
-  {
     id: "project-8",
     image: GretzkyDashboardImage,
-    type: "Data Analytics",
+    thumbnail: GretzkyDashboardThumbnail,
+    focus: "Data Analytics",
+    type: "Data Visualization",
     title: "Wayne Gretzky Career Dashboard",
     description:
       "Case-study exploring Wayne Gretzky's career through key stats, trends, and milestones.",
     path: "/projects/gretzky-dashboard",
-
-    focus: "Data Analytics",
     technology: {
       languages: [],
-      frameworks: ["Tableau"],
+      frameworks: [],
       libraries: [],
       databases: [],
       platforms: [],
+      runtimes: [],
+      tools: ["Tableau"],
       integrations: [],
     },
     urls: {
@@ -204,23 +228,48 @@ const dataAnalyticsProjects: ProjectCardProperties[] = [
   {
     id: "project-9",
     image: NHLGoalStatsImage,
-    type: "Data Analytics",
+    thumbnail: NHLGoalStatsThumbnail,
+    focus: "Data Analytics",
+    type: "Data Visualization",
     title: "NHL Goal Scoring Race",
     description:
       "Historical analysis of NHL goal-scoring statistics using an animated chart.",
     path: "/projects/racing-bar-nhl-top-goals",
-
-    focus: "Data Analytics",
     technology: {
       languages: ["JavaScript"],
       frameworks: [],
       libraries: [],
       databases: [],
       platforms: [],
+      runtimes: [],
+      tools: [],
       integrations: [],
     },
     urls: {
       web: "https://www.youtube.com/watch?v=TX5_HzBarUk",
+    },
+  },
+  {
+    id: "project-7",
+    image: MotionChartsImage,
+    thumbnail: MotionChartsThumbnail,
+    focus: "Frontend",
+    type: "Web App",
+    title: "Motion Charts",
+    description: "Convert time-series data into animated customizable charts.",
+    path: "/projects/motion-charts",
+    technology: {
+      languages: ["TypeScript"],
+      frameworks: ["React"],
+      libraries: [],
+      databases: [],
+      platforms: [],
+      runtimes: ["Node.js"],
+      tools: [],
+      integrations: [],
+    },
+    urls: {
+      git: "https://github.com/kolby-k/motion-charts-app",
     },
   },
 ];
@@ -229,21 +278,21 @@ export const PROJECTS: ProjectShowcase[] = [
   {
     id: 1,
     highlight: "Build secure, reliable applications and integrations",
-    skills: ["Node.js", "Express", "REST"],
-    path: "/projects?focus=Full%20Stack",
+    skills: ["Node.js", "Express", "Integrations"],
+    path: "/projects?focus=Full%20Stack&focus=Backend",
     projects: fullstackProjects,
   },
   {
     id: 2,
     highlight: "Create clean, modern interfaces that feel intuitive",
-    skills: ["React.js", "Next.js", "CSS"],
+    skills: ["React.js", "Next.js", "React Native"],
     path: "/projects?focus=Frontend",
     projects: frontendProjects,
   },
   {
     id: 3,
     highlight: "Turn complex data into clear, interactive insights",
-    skills: ["SQL", "Python", "Typescript"],
+    skills: ["SQL", "JavaScript", "Typescript"],
     path: "/projects?focus=Data%20Analytics",
     projects: dataAnalyticsProjects,
   },

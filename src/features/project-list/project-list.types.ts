@@ -1,5 +1,5 @@
-import type { ProjectFocus, ProjectType, Technology } from "../../types";
-export type FilterValueType = ProjectType | ProjectFocus | Technology;
+import type { ProjectFocus, ProjectType, Language } from "../../types";
+export type FilterValueType = ProjectType | ProjectFocus | Language;
 export type FilterUpdate =
   | {
       list: "type";
@@ -10,6 +10,6 @@ export type FilterUpdate =
       value: ProjectFocus;
     }
   | {
-      list: "technology";
-      value: Technology;
+      list: "languages";
+      value: Language;
     };

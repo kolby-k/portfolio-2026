@@ -1,4 +1,4 @@
-import { PROJECT_FOCUSES, TECHNOLOGIES } from "../../../types";
+import { PROJECT_FOCUSES, LANGUAGES, PROJECT_TYPES } from "../../../types";
 import styles from "../project-list.module.css";
 import type { FilterUpdate, FilterValueType } from "../project-list.types";
 
@@ -27,7 +27,24 @@ function TechnologyFilter({
   return (
     <div className={styles.techFilterWrapper}>
       <div className={styles.techFilterSection}>
-        <h4>Project Focus</h4>
+        <h4>Type</h4>
+        <span>
+          {PROJECT_TYPES.map((t) => {
+            const isActive = active.includes(t);
+            return (
+              <button
+                key={`${t}`}
+                className={`${styles.techFilterTag} ${isActive ? styles.techFilterTagActive : ""}`}
+                onClick={() => handleFiltering({ list: "type", value: t })}
+              >
+                {t}
+              </button>
+            );
+          })}
+        </span>
+      </div>
+      <div className={styles.techFilterSection}>
+        <h4>Focus</h4>
         <span>
           {PROJECT_FOCUSES.map((t) => {
             const isActive = active.includes(t);
@@ -45,17 +62,15 @@ function TechnologyFilter({
       </div>
 
       <div className={styles.techFilterSection}>
-        <h4>Filter by</h4>
+        <h4>Languages</h4>
         <span>
-          {TECHNOLOGIES.map((t) => {
+          {LANGUAGES.map((t) => {
             const isActive = active.includes(t);
             return (
               <button
                 key={`${t}`}
                 className={`${styles.techFilterTag} ${isActive ? styles.techFilterTagActive : ""}`}
-                onClick={() =>
-                  handleFiltering({ list: "technology", value: t })
-                }
+                onClick={() => handleFiltering({ list: "languages", value: t })}
               >
                 {t}
               </button>

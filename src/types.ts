@@ -1,7 +1,7 @@
 export const PROJECT_TYPES = [
   "Web App",
   "Mobile App",
-  "Data Analytics",
+  "Data Visualization",
 ] as const;
 
 export type ProjectType = (typeof PROJECT_TYPES)[number];
@@ -9,51 +9,83 @@ export type ProjectType = (typeof PROJECT_TYPES)[number];
 export const PROJECT_FOCUSES = [
   "Full Stack",
   "Frontend",
+  "Backend",
   "Data Analytics",
 ] as const;
 
 export type ProjectFocus = (typeof PROJECT_FOCUSES)[number];
+export const LANGUAGES = ["TypeScript", "JavaScript", "SQL"] as const;
 
-export const TECHNOLOGIES = [
-  "TypeScript",
-  "JavaScript",
+export type Language = (typeof LANGUAGES)[number];
+
+export const FRAMEWORKS = [
   "Next.js",
   "React",
   "React Native",
   "Express",
-  "Node.js",
-  "PostgreSQL",
-  "Redis",
-  "Redux Toolkit",
-  "Tailwind CSS",
-  "Zod",
   "Expo",
-  "iOS",
-  "OpenAI",
-  "Google OAuth",
-  "Google Maps",
-  "Open Meteo",
-  "Tableau",
 ] as const;
 
-export type Technology = (typeof TECHNOLOGIES)[number];
+export type Framework = (typeof FRAMEWORKS)[number];
+
+export const LIBRARIES = ["Redux Toolkit", "Zod", "Validator"] as const;
+
+export type Library = (typeof LIBRARIES)[number];
+
+export const DATABASES = ["PostgreSQL", "Redis"] as const;
+
+export type Database = (typeof DATABASES)[number];
+
+export const RUNTIMES = ["Node.js"] as const;
+
+export type Runtime = (typeof RUNTIMES)[number];
+
+export const PLATFORMS = ["iOS"] as const;
+
+export type Platform = (typeof PLATFORMS)[number];
+
+export const TOOLS = ["Tableau"] as const;
+
+export type Tool = (typeof TOOLS)[number];
+
+export const INTEGRATIONS = [
+  "OpenAI API",
+  "Microsoft Graph",
+  "Google OAuth",
+  "Google Maps API",
+  "Open-Meteo API",
+  "Zoho CRM",
+  "RingCentral API",
+  "Zoom API",
+  "EventBrite API",
+  "MailChimp API",
+  "Apple Sign In",
+  "StoreKit",
+] as const;
+
+export type Integration = (typeof INTEGRATIONS)[number];
+
 export type ProjectTechnology = {
-  languages?: Technology[];
-  frameworks?: Technology[];
-  libraries?: Technology[];
-  databases?: Technology[];
-  platforms?: Technology[];
-  integrations?: Technology[];
+  languages?: Language[];
+  frameworks?: Framework[];
+  libraries?: Library[];
+  databases?: Database[];
+  runtimes?: Runtime[];
+  platforms?: Platform[];
+  tools?: Tool[];
+  integrations?: Integration[];
 };
+
 export type ProjectCardProperties = {
   id: string;
   image: string;
+  thumbnail?: string;
+  focus: ProjectFocus;
   type: ProjectType;
   title: string;
   description: string;
   path: string;
 
-  focus: ProjectFocus;
   technology: ProjectTechnology;
   urls: {
     git?: string;

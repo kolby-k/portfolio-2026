@@ -4,6 +4,7 @@ import ProjectCard from "./componenets/ProjectCard";
 import Highlight from "./componenets/Highlight";
 import { PROJECTS } from "../../constants";
 import type { ProjectShowcase } from "./hero.types";
+import { PiArrowCircleDownThin } from "react-icons/pi";
 
 function Hero() {
   const [projectList, setProjectList] = useState<ProjectShowcase[]>(PROJECTS);
@@ -48,10 +49,10 @@ function Hero() {
     const reorderedProjects = [...projectList];
     if (direction === "up") {
       // decrement index and wrap first item to bottom
-      [reorderedProjects[2], reorderedProjects[0], reorderedProjects[1]] = [
-        reorderedProjects[0],
+      [reorderedProjects[0], reorderedProjects[1], reorderedProjects[2]] = [
         reorderedProjects[1],
         reorderedProjects[2],
+        reorderedProjects[0],
       ];
     }
     if (direction === "down") {
@@ -71,12 +72,12 @@ function Hero() {
       <div className={styles.heroContent}>
         <button
           type="button"
-          title="next skill"
+          title="Change skill"
           onClick={() => reorderProjects("up")}
           disabled={isAnimating}
           className={styles.arrowButton}
         >
-          I like to ..
+          I like to <PiArrowCircleDownThin className="icon" />
         </button>
 
         <Highlight
@@ -92,7 +93,7 @@ function Hero() {
         <h3>Featured Projects</h3>
 
         <div className={styles.projectCards}>
-          {focusProjectShowcase.projects.map((project) => (
+          {focusProjectShowcase.projects.slice(0, 2).map((project) => (
             <ProjectCard key={project.path} project={project} />
           ))}
         </div>

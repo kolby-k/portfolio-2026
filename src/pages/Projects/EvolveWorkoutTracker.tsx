@@ -1,13 +1,15 @@
 function EvolveWorkoutTracker() {
   return (
     <div className="project-page-content">
-      <h1 className="fancy-title">Workout tracking made easy</h1>
-      <p>
-        I was inspired to create Evolve primarily because of my interest in both
-        bodybuilding and programming- I saw it as a great opportunity to
-        practice developing software by focusing on a niche that I am interested
-        in, fitness.
-      </p>
+      <div className="project-page-section">
+        <h2>Workout tracking made easy</h2>
+        <p>
+          I was inspired to create Evolve primarily because of my interest in
+          both bodybuilding and programming- I saw it as a great opportunity to
+          practice developing software by focusing on a niche that I am
+          interested in, fitness.
+        </p>
+      </div>
       <div className="project-page-section">
         <h2>Features</h2>
         <p>

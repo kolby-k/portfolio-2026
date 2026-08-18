@@ -47,6 +47,10 @@
 .icon {
   font-size: 1.25rem;
 }
+.icon-sm {
+  font-size: 0.95rem;
+}
+
 .tag {
   font-size: 0.75rem;
   font-weight: 600;
@@ -54,6 +58,14 @@
   border-radius: 30px;
   border: 1px solid;
 
+  min-width: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: fit-content;
   cursor: default;
 }
 
@@ -85,6 +97,13 @@
   box-shadow: 0 0 8px 2px var(--orange-tag-shadow);
 }
 
+.base_tag {
+  background: var(--surface-raised);
+  border-color: var(--border);
+  color: var(--text-secondary);
+  box-shadow: 0 0 8px 2px var(--surface-raised);
+}
+
 .project-page-wrapper {
   display: flex;
   flex-direction: column;
@@ -96,7 +115,7 @@
 }
 .project-page-content {
   padding-top: 1rem;
-  max-width: 900px;
+  max-width: 1450px;
 
   display: grid;
   gap: 1rem;
@@ -115,11 +134,13 @@
 }
 
 .project-page-header > h3 {
-  font-size: 1.75rem;
+  font-size: 2.5rem;
+  font-weight: 400;
   color: var(--text-primary);
 }
 .project-page-header > p {
   font-size: 1.15rem;
+  font-weight: 400;
   color: var(--text-muted);
 }
 .project-page-links {
@@ -161,8 +182,12 @@
 }
 
 .project-page-section > h2 {
-  font-size: 1.35rem;
+  font-size: 2rem;
+  font-family: "Raleway";
+  font-weight: 300;
 }
 .project-page-section > p {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--text-secondary);
 }

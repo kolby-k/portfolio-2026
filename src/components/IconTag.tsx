@@ -1,14 +1,15 @@
 import type { ReactElement } from "react";
 import { FaNodeJs } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
-import { TbApi } from "react-icons/tb";
 
 import { FaReact } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
-import { BsCss } from "react-icons/bs";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { FaPython } from "react-icons/fa";
-import { BsTypescript } from "react-icons/bs";
+import { BsTypescript, BsJavascript } from "react-icons/bs";
+import { VscDebugDisconnect } from "react-icons/vsc";
+import { TbBrandReactNative } from "react-icons/tb";
+
 export type IconTagProps = {
   label: string;
   icon?: string;
@@ -24,8 +25,8 @@ function IconTag({ label, icon }: IconTagProps) {
     case "express":
       iconElement = <SiExpress className="icon" />;
       break;
-    case "rest":
-      iconElement = <TbApi className="icon" />;
+    case "integrations":
+      iconElement = <VscDebugDisconnect className="icon" />;
       break;
     case "react.js":
       iconElement = <FaReact className="icon" />;
@@ -33,8 +34,8 @@ function IconTag({ label, icon }: IconTagProps) {
     case "next.js":
       iconElement = <RiNextjsFill className="icon" />;
       break;
-    case "css":
-      iconElement = <BsCss className="icon" />;
+    case "react native":
+      iconElement = <TbBrandReactNative className="icon" />;
       break;
     case "sql":
       iconElement = <BiLogoPostgresql className="icon" />;
@@ -45,12 +46,15 @@ function IconTag({ label, icon }: IconTagProps) {
     case "typescript":
       iconElement = <BsTypescript className="icon" />;
       break;
+    case "javascript":
+      iconElement = <BsJavascript className="icon" />;
+      break;
     default:
       break;
   }
   return (
     <div className={`icon-tag`}>
-      {iconElement && iconElement}
+      {iconElement != null && iconElement}
       <p>{label}</p>
     </div>
   );

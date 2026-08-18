@@ -16,8 +16,8 @@ function Layout() {
     <div className="project-page-wrapper">
       <div className="project-page-header">
         <NavButton title="All Projects" to="/projects" hint="back" />
-        <h3>{projectProperties?.title}</h3>
-        <p>{projectProperties?.description}</p>
+        <h3 className="fancy-title">{projectProperties?.title}</h3>
+        <p className="fancy-title">{projectProperties?.description}</p>
       </div>
 
       <div className="project-page-links">

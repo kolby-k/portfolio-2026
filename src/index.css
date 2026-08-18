@@ -11,7 +11,7 @@
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
 
   font: 18px;
   color-scheme: light dark;
@@ -151,13 +151,68 @@ ul {
   margin: 1rem auto;
 }
 
-/* TODO find a font for this */
 .fancy-title {
-  font-family: monospace;
+  font-family: "Raleway";
+  font-weight: 700;
+}
+.fancy-title-thin {
+  font-family: "Raleway";
+  font-weight: 300;
+}
+.fancy-card-title {
+  font-family: "Raleway";
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text-highlight);
+  display: inline;
+  margin-right: 1rem;
+  padding: 0.25rem;
+}
+.card-description {
+  font-family: "Raleway";
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* hyperlink text */
+.text-link {
+  font-size: 1.1rem;
+  color: var(--primary-bright);
+}
+
+/* hyperlink text for card */
+.card-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+
+  font-size: 0.95rem;
+  color: var(--primary-bright);
+  text-align: left;
+
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+
+  font-family: "Raleway";
+  font-weight: 400;
 }
 
 /* Make icon same size as font */
 .font-icon {
   font-size: inherit;
   color: inherit;
+}
+
+/* Make tags render as flex items */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
 }

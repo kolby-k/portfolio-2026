@@ -1,13 +1,14 @@
 .container {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   min-height: 100dvh;
   width: 100%;
 
   padding-bottom: 2rem;
 
-  --card-width: 420px;
-  --card-height: 280px;
+  --card-width: 450px;
+  --card-height: 240px;
 }
 
 .header {
@@ -37,8 +38,8 @@
   display: grid;
   min-width: 380px;
   width: 100%;
+  height: 100%;
 
-  margin: auto;
   justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
 
@@ -60,8 +61,10 @@
 }
 .projectCardWrapper:hover {
   cursor: pointer;
-  transform: translateY(-2px);
   box-shadow: 2px 4px 20px 15px var(--glow-soft);
+}
+.projectCardWrapper:hover .textContainer {
+  border-left: 1px solid var(--divider);
 }
 
 .projectCardWrapper::before {
@@ -83,12 +86,10 @@
   height: 100%;
   overflow: hidden;
 
+  display: grid;
+  grid-template-columns: 35% 65%;
+
   border-radius: 4px;
-  background: linear-gradient(
-    45deg,
-    var(--surface-raised) 20%,
-    var(--surface-hover)
-  );
 }
 
 .textContainer {
@@ -97,25 +98,32 @@
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
+  z-index: 1;
+  background: linear-gradient(45deg, var(--surface), var(--surface-raised));
+  position: relative;
+  border-left: 1px solid transparent;
 }
-.textContainer > h3 {
-  color: var(--text-primary);
-  font-size: 1.45rem;
+
+.projectCardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  width: 100%;
+  padding-top: 0.25rem;
 }
-.textContainer > p {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
+.projectCardTags > :first-child {
+  flex-basis: 100%;
+  display: flex;
+  gap: inherit;
 }
+
 .imageWrapper {
   position: relative;
-  margin-top: 1rem;
   filter: blur(1px);
-
-  overflow: hidden;
 }
 .projectCardWrapper:hover .imageWrapper {
-  filter: blur(0);
-  scale: 1.02;
+  filter: blur(0px);
 }
 .projectCardWrapper:hover .imageWrapper::after {
   background-color: var(--hover-overlay);
@@ -128,11 +136,15 @@
 }
 .projectImage {
   width: auto;
-  width: var(--card-width);
-  aspect-ratio: 16 / 9;
+  height: var(--card-height);
+  aspect-ratio: 3/4;
   border-radius: inherit;
+  scale: 1.1;
+  background: radial-gradient(var(--primary), var(--bg));
 }
-
+.projectCardWrapper:hover .projectImage {
+  scale: 1;
+}
 .techFilterWrapper {
   position: relative;
   display: flex;
@@ -141,18 +153,22 @@
   padding: 0.5rem;
 }
 .techFilterSection {
-  display: grid;
-  gap: 1rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
   padding: 1rem;
 }
-.techFilterSection > h4 {
-  font-size: 1.15rem;
+.techFilterSection > h4:first-of-type {
+  font-size: 1.1rem;
   font-weight: 500;
+  text-align: center;
 }
 .techFilterSection span:first-of-type {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  flex: 1;
+  justify-content: center;
   align-items: center;
   gap: 1rem 0.75rem;
 }
@@ -184,10 +200,14 @@
   position: absolute;
   top: 0.5rem;
   right: 2%;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0.5rem;
 
   background-color: var(--surface);
   border-radius: 4px;
 
   cursor: pointer;
+}
+
+.block {
+  display: block;
 }
