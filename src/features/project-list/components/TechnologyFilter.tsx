@@ -27,23 +27,6 @@ function TechnologyFilter({
   return (
     <div className={styles.techFilterWrapper}>
       <div className={styles.techFilterSection}>
-        <h4>Type</h4>
-        <span>
-          {PROJECT_TYPES.map((t) => {
-            const isActive = active.includes(t);
-            return (
-              <button
-                key={`${t}`}
-                className={`${styles.techFilterTag} ${isActive ? styles.techFilterTagActive : ""}`}
-                onClick={() => handleFiltering({ list: "type", value: t })}
-              >
-                {t}
-              </button>
-            );
-          })}
-        </span>
-      </div>
-      <div className={styles.techFilterSection}>
         <h4>Focus</h4>
         <span>
           {PROJECT_FOCUSES.map((t) => {
@@ -60,7 +43,23 @@ function TechnologyFilter({
           })}
         </span>
       </div>
-
+      <div className={styles.techFilterSection}>
+        <h4>Type</h4>
+        <span>
+          {PROJECT_TYPES.map((t) => {
+            const isActive = active.includes(t);
+            return (
+              <button
+                key={`${t}`}
+                className={`${styles.techFilterTag} ${isActive ? styles.techFilterTagActive : ""}`}
+                onClick={() => handleFiltering({ list: "type", value: t })}
+              >
+                {t}
+              </button>
+            );
+          })}
+        </span>
+      </div>
       <div className={styles.techFilterSection}>
         <h4>Languages</h4>
         <span>
@@ -80,8 +79,12 @@ function TechnologyFilter({
       </div>
 
       {active.length > 0 && (
-        <button onClick={clear} className={styles.clearButton}>
-          Remove Filters
+        <button
+          onClick={clear}
+          className={styles.clearButton}
+          title="Clear Filters"
+        >
+          X
         </button>
       )}
     </div>

@@ -30,22 +30,24 @@ function ProjectListCard({ project }: ProjectListCardProps) {
             className={styles.projectImage}
           />
         </div>
-        <div className={styles.textContainer}>
-          <h3 className="fancy-card-title">{project.title}</h3>
-          <p className="card-description">{project.description}</p>
-          <div className={styles.projectCardTags}>
-            <div>
-              <Tag
-                key={`focus-${project.focus}`}
-                label={project.focus}
-                color={getProjectFocusTagColor(project.focus)}
-              />
-              <Tag key={`type-${project.type}`} label={project.type} />
+        <div className={styles.textWrapper}>
+          <span className={styles.textContainer}>
+            <h3 className="fancy-card-title">{project.title}</h3>
+            <p className="card-description">{project.description}</p>
+            <div className={styles.projectCardTags}>
+              <div>
+                <Tag
+                  key={`focus-${project.focus}`}
+                  label={project.focus}
+                  color={getProjectFocusTagColor(project.focus)}
+                />
+                <Tag key={`type-${project.type}`} label={project.type} />
+              </div>
+              {childTags.map((label) => {
+                return <Tag key={`tag-${label}`} label={label} color="blue" />;
+              })}
             </div>
-            {childTags.map((label) => {
-              return <Tag key={`tag-${label}`} label={label} color="blue" />;
-            })}
-          </div>
+          </span>
           <p className="card-link">
             View project <RxArrowTopRight />
           </p>

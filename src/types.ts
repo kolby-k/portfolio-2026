@@ -93,3 +93,25 @@ export type ProjectCardProperties = {
     ios?: string;
   };
 };
+
+export const TIMELINE_TYPES = ["Work", "Education", "Launches"] as const;
+
+export type TIMELINE_TYPES = (typeof TIMELINE_TYPES)[number];
+export type TimelineItemProperties = {
+  date: string;
+  title: string;
+  description: string;
+  details:
+    | {
+        type: TIMELINE_TYPES;
+        role: string;
+        endDate: string | null;
+      }
+    | {
+        type: TIMELINE_TYPES;
+      }
+    | {
+        type: TIMELINE_TYPES;
+        link?: string;
+      };
+};

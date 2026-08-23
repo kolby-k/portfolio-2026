@@ -1,5 +1,5 @@
 import type { ProjectShowcase } from "./features/hero/hero.types";
-import type { ProjectCardProperties } from "./types";
+import type { ProjectCardProperties, TimelineItemProperties } from "./types";
 
 import SummarizeImage from "./assets/summarizer-home.png";
 import EvolveImage from "./assets/evolve-home.png";
@@ -81,7 +81,8 @@ const fullstackProjects: ProjectCardProperties[] = [
     thumbnail: ImagePlaceholder,
     focus: "Backend",
     type: "Web App",
-    title: "Miscrosft Teams Subscription Service",
+    title:
+      "Miscrosft Teams Subscription ServiceAutomate subscriptions for Teams meetings to transcribe and attendance events...",
     description:
       "Automate subscriptions for Teams meetings to transcribe and attendance events...",
     path: "/projects/ms-teams-service",
@@ -295,5 +296,105 @@ export const PROJECTS: ProjectShowcase[] = [
     skills: ["SQL", "JavaScript", "Typescript"],
     path: "/projects?focus=Data%20Analytics",
     projects: dataAnalyticsProjects,
+  },
+];
+
+export const TimelineData: TimelineItemProperties[] = [
+  {
+    date: "2025-05-28",
+    title: "Evolve Workout Tracker - iOS App Release",
+    description:
+      "Deployed my first app in Apple App store, Evolve, a workout tracking app.",
+    details: {
+      type: "Launches",
+      link: "/projects/evolve-workout-tracker",
+    },
+  },
+  {
+    date: "2024-07-08",
+    title: "Full-Stack Engineer Career Path",
+    description:
+      "Codecademy course focused on building full-stack web applications, covering front-end development, back-end services, and client-server integration.",
+    details: {
+      type: "Education",
+    },
+  },
+  {
+    date: "2023-06-08",
+    title: "Data Scientist - Analytics Specialist",
+    description:
+      "Codecademy course focused on data analytics, statistics, probability, data visualization, and applying data to support decision-making.",
+    details: {
+      type: "Education",
+    },
+  },
+  {
+    date: "2022-10-20",
+    title: "Project Management - Course (SAIT)",
+    description:
+      "Codecademy course focused on building full-stack web applications, covering front-end development, back-end services, and client-server integration.",
+    details: {
+      type: "Education",
+    },
+  },
+  {
+    date: "2022-10-02",
+    title: "Business Link Alberta",
+    description:
+      "Integrate and managing data pipelines, reporting, and backend processes including workflow automations.",
+    details: {
+      type: "Work",
+      role: "Data Analyst",
+      endDate: null,
+    },
+  },
+  {
+    date: "2021-05-12",
+    title: "Business Link Alberta",
+    description:
+      "First point of contact of support for clients to assist with business support inquiries.",
+    details: {
+      type: "Work",
+      role: "Business Support Officer",
+      endDate: "2022-10-01",
+    },
+  },
+  {
+    date: "2019-03-01",
+    title: "Telus - Customer Service Representative",
+    description:
+      "Diagnosed and troubleshot a variety of internet-related issues virtually and in real time.",
+    details: {
+      type: "Work",
+      role: "Pure Fibre Technical Support",
+      endDate: "2021-05-11",
+    },
+  },
+  {
+    date: "2017-04-28",
+    title: "Bachelor of Business Administration - Economics",
+    description: "Earned a BBA (Econ major) from Thompson Rivers University",
+    details: {
+      type: "Education",
+    },
+  },
+  {
+    date: "2017-01-28",
+    title: "Beez Pleez - Kickstart Campaign",
+    description:
+      "A crowdfunding campaign that successfully raised 104% ($15,704) of the target in 30 days; 136 backers from 8 different countries contributed.",
+    details: {
+      type: "Launches",
+      link: "https://www.kickstarter.com/projects/408710899/beez-pleez-candles-with-a-cause",
+    },
+  },
+  {
+    date: "2016-03-12",
+    title: "Undergraduate Research Conference - Presenter",
+    description:
+      "Represented TRU's School of Business by presenting economic research on Russia's macroeconomic history, for an audience of students and professors.",
+    details: {
+      type: "Education",
+    },
   },
 ];
