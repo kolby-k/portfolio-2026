@@ -88,7 +88,6 @@ function Hero() {
           direction={direction}
         />
       </div>
-      <span className={styles.heroDivider}></span>
       <div className={styles.featureProjects}>
         <h3>Featured Projects</h3>
 

@@ -30,12 +30,20 @@ function TimelineItem({ data }: { data: TimelineItemProperties }) {
     <div className={styles.timelineItem}>
       <div className={styles.timelineItemDot}></div>
       <div className={styles.timelineItemCard}>
-        <p className={styles.timelineItemDate}>{dateText}</p>
-        {TypeIcon}
+        <span className={styles.timelineItemTagSmall}>
+          <p className={styles.timelineItemDate}>{dateText}</p>
+          <Tag label={data.details.type} />
+        </span>
+        <span className={styles.timelineItemDateLarge}>
+          <p className={styles.timelineItemDate}>{dateText}</p>
+          {TypeIcon}
+        </span>
         <span className={styles.timelineItemText}>
           <div className={styles.timelineItemTitleRow}>
             <p className={styles.timelineItemTitle}>{data.title}</p>
-            <Tag label={data.details.type} style={styles.timelineItemTag} />
+            <span className={styles.timelineItemTag}>
+              <Tag label={data.details.type} />
+            </span>
           </div>
           <p className={styles.timelineItemDescription}>{data.description}</p>
         </span>

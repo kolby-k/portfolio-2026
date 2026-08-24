@@ -184,7 +184,7 @@ function Highlight({
       </div>
 
       <Link to={currentProject.path} className={styles.viewProjectButton}>
-        View related projects <BsArrowRight />
+        View more projects <BsArrowRight style={{ paddingTop: 4 }} />
       </Link>
     </div>
   );

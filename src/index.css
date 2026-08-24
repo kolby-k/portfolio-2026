@@ -144,6 +144,12 @@ ul {
   margin-inline: auto;
 }
 
+.page-full {
+  width: min(100%, 1500px);
+  margin-inline: auto;
+  overflow-x: hidden;
+}
+
 .description {
   font-family: "Raleway";
   color: var(--text-secondary);
@@ -193,9 +199,9 @@ ul {
   font-size: 0.95rem;
   color: var(--text-secondary);
   display: -webkit-box;
-  line-clamp: 2;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   overflow: hidden;
 }
 
@@ -241,7 +247,12 @@ ul {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(var(--glow), transparent, var(--bg));
+  background: radial-gradient(
+    var(--glow),
+    transparent,
+    var(--bg) 95%,
+    transparent
+  );
 }
 .pattern {
   position: absolute;
@@ -257,6 +268,11 @@ ul {
     transparent 52%
   );
   opacity: 0.5;
-  background-size: 6px 6px;
+  background-size: 8px 8px;
   z-index: 0;
+  filter: blur(1px);
+}
+
+.relative {
+  position: relative;
 }

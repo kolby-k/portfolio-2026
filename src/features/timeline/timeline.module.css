@@ -10,52 +10,65 @@
   /* border: 1px solid orange; */
 }
 
-.header {
+.headerWrapper {
   display: flex;
-  justify-content: space-evenly;
 
-  /* border: 1px solid orange; */
-}
-.headerLeft {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  grid-template-rows: 60px minmax(60px, fit-content);
-  gap: 1rem;
-  align-content: space-between;
-  padding: 1rem;
-  z-index: 1;
-}
-.headerRight {
-  display: flex;
-  flex: 0.5;
+  position: relative;
   justify-content: center;
   align-items: center;
-  position: relative;
-  width: 100%;
-  height: 90px;
-  z-index: 15;
 }
-.headerLeft h2,
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-auto-rows: min-content;
+  padding: 0 2rem;
+
+  max-width: 800px;
+  /* margin: auto; */
+  gap: 1rem;
+
+  z-index: 10;
+  /* border: 1px solid orange; */
+}
+.header h2,
 p {
   padding: 0.25rem;
 }
 .calendar {
-  font-size: 3rem;
-  height: auto;
-  min-width: 50px;
+  font-size: 2rem;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
   color: var(--primary-bright);
-  padding: 0.5rem;
-  margin: 0.5rem;
+  padding: 0.25rem;
   border: 1px solid var(--glow);
   border-radius: 6px;
   background-color: var(--glow-soft);
+  position: relative;
+  z-index: 0;
+
+  align-self: center;
+}
+.calendar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0.5;
+  background: linear-gradient(var(--primary-dark), var(--primary-soft));
+}
+.calendar > svg {
+  z-index: 2;
 }
 .tagContainer {
   display: flex;
   align-items: flex-end;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   grid-column: 1/-1;
-  min-width: 500px;
+  gap: 1rem;
 }
 .filterTag {
   display: flex;
@@ -84,9 +97,16 @@ p {
   color: var(--primary-bright);
 }
 
+.kolbyWrapper {
+  display: flex;
+  height: 200px;
+  overflow: visible;
+  margin: -1rem 0;
+  padding-right: 1rem;
+}
 .kolbyCoding {
-  height: auto;
-  max-width: 280px;
+  height: 200px;
+  width: auto;
 
   transform: scaleX(-1);
   z-index: 1;
@@ -99,7 +119,6 @@ p {
 
   height: 100%;
   width: 100%;
-  min-width: 500px;
   min-height: calc(var(--item-height) * 2);
 
   /* overflow: hidden; */
@@ -133,7 +152,7 @@ p {
 }
 .timelineItems {
   display: grid;
-  grid-auto-rows: var(--item-height);
+  /* grid-auto-rows: minmax(var(--item-height), fit-content); */
   gap: 1rem;
   height: 100%;
   position: relative;
@@ -163,21 +182,23 @@ p {
   border-radius: 6px;
   background-color: var(--surface);
 
-  display: flex;
-  flex: 1;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  justify-content: start;
   gap: 0.5rem;
   padding: 1rem;
 
   height: 100%;
+  width: 100%;
 
   position: relative;
   overflow: hidden;
 }
 
 .timelineItemDate {
-  width: 100px;
-  text-align: left;
+  width: 80px;
+  text-align: center;
   font-size: 1.1rem;
   font-weight: 600;
   font-family: "Raleway";
@@ -202,9 +223,12 @@ p {
   padding: 0 0.5rem;
 }
 .timelineItemTitleRow {
-  display: grid;
-  grid-template-columns: 80% 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 30px;
   gap: 0.5rem;
+  width: 100%;
 }
 .timelineItemTitle {
   font-size: 1.1rem;
@@ -215,35 +239,49 @@ p {
   font-weight: 300;
   color: var(--text-secondary);
   display: -webkit-box;
-  line-clamp: 3;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
+  -webkit-line-clamp: 4;
+  overflow-y: scroll;
 }
 .timelineItemTag {
   justify-self: flex-end;
   align-self: flex-start;
 }
 
-@media screen and (max-width: 915px) {
-  .kolbyCoding {
-    left: 35%;
-    bottom: -15%;
-
-    transform: scale(-0.7, 0.7);
-  }
-
+.timelineItemTagSmall {
+  display: none;
+}
+.timelineItemDateLarge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* @media screen and (max-width: 768px) {
   .timelineItems {
     grid-auto-rows: calc(var(--item-height) * 1.2);
   }
-}
+} */
 
-@media screen and (max-width: 600px) {
-  .headerRight {
+@media screen and (max-width: 500px) {
+  .kolbyWrapper {
     display: none;
   }
-  .timelineItems {
+  /* .timelineItems {
     grid-auto-rows: calc(var(--item-height) * 1.3);
+  } */
+
+  .timelineItemDescription {
+    font-size: 0.95rem;
+  }
+  .timelineItemTag {
+    display: none;
+  }
+  .timelineItemDateLarge {
+    display: none;
+  }
+  .timelineItemTagSmall {
+    display: block;
   }
 
   .timelineItemCard {

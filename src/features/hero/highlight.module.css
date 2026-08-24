@@ -2,13 +2,16 @@
   --slot-distance: 6rem;
   --bottom-grid-row-height: 60px;
   display: grid;
-  max-width: 650px;
-  min-width: 380px;
-  width: 100%;
 
+  width: 100%;
+  /* grid-template-columns: 2px auto;
   grid-template-rows:
     minmax(calc(var(--slot-distance) * 3), auto)
-    repeat(2, minmax(var(--bottom-grid-row-height), auto));
+    repeat(2, minmax(var(--bottom-grid-row-height), auto)); */
+  grid-template-areas:
+    "vBar highlight"
+    "tags tags"
+    "button button";
   align-items: center;
   justify-items: flex-start;
   gap: 1rem;
@@ -24,28 +27,29 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-
   gap: 1rem;
   padding: 1rem 0;
+  min-width: min(300px, 50vw);
 
+  grid-area: highlight;
+  margin-right: 1rem;
   /* border: 1px solid red; */
 }
 
 .vScrollLine {
-  position: absolute;
-  top: 0;
-  left: -0.25rem;
-  width: 0.15rem;
+  position: relative;
+  width: 2px;
   height: 100%;
   max-height: calc(var(--slot-distance) * 3 + 3rem);
 
   background: linear-gradient(
-    transparent,
+    transparent 5%,
     var(--primary-bright),
     var(--primary) 30%,
     transparent 95%
   );
   border-radius: 20px;
+  grid-area: vBar;
 }
 
 .vScrollDot {
@@ -91,7 +95,6 @@
 .highlightTitle {
   display: block;
   width: 100%;
-  height: var(--slot-distance);
   min-width: 0;
   align-content: center;
 
@@ -116,8 +119,9 @@
 
 .skillTags {
   display: flex;
-  justify-content: space-evenly;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  grid-area: tags;
 }
 
 .viewProjectButton {
@@ -136,6 +140,7 @@
 
   text-decoration: none;
   cursor: pointer;
+  grid-area: button;
 }
 .viewProjectButton:hover {
   transform: translateY(-1px);
@@ -184,5 +189,18 @@
     transform: translateY(-5.5rem);
     opacity: 1;
     scale: 1.2;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .highlightTitleText {
+    font-size: 2rem;
+  }
+  .highlightViewport .highlightTitle:nth-child(2) .highlightTitleText {
+    font-size: 1.75rem;
+  }
+
+  .highlightViewport .highlightTitle:nth-child(3) .highlightTitleText {
+    font-size: 1.5rem;
   }
 }

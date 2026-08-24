@@ -4,7 +4,7 @@ import Timeline from "../../features/timeline/Timeline";
 
 function HomePage() {
   return (
-    <div className="page">
+    <div className="page-full">
       <Hero />
       <Divider />
       <Timeline />

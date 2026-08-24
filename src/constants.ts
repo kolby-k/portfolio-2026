@@ -299,7 +299,7 @@ export const PROJECTS: ProjectShowcase[] = [
   },
 ];
 
-export const TimelineData: TimelineItemProperties[] = [
+export const TIMELINE: TimelineItemProperties[] = [
   {
     date: "2025-05-28",
     title: "Evolve Workout Tracker - iOS App Release",

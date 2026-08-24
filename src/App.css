@@ -30,10 +30,12 @@
 
 .icon-tag {
   display: flex;
-  gap: 1rem;
-  font-size: 0.95rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  padding: 0.5rem 0.75rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 10px;
   border: 1px solid var(--border-subtle);
   background-color: var(--surface-raised);
@@ -45,7 +47,7 @@
   box-shadow: 0 0 20px 4px var(--surface-raised);
 }
 .icon {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 .icon-sm {
   font-size: 0.95rem;
@@ -189,4 +191,15 @@
   font-size: 1.25rem;
   font-weight: 300;
   color: var(--text-secondary);
+}
+
+@media screen and (max-width: 650px) {
+  .icon-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+  }
+
+  .icon {
+    font-size: 1rem;
+  }
 }
