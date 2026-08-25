@@ -6,19 +6,18 @@ function useTimelineFilter() {
   const [filterList, setFilterList] = useState<FilterOptions[]>(["All"]);
 
   const handleFilterChange = (filterValue: FilterOptions): void => {
-    // update filter list state
+    // update filter list state: currently max. 1 filter simultaneously
     setFilterList((prev) => {
       if (prev.includes(filterValue)) {
-        // remove active filter
-        if (filterValue === "All") {
-          // remove all filters
-          return [];
-        }
         // remove single filter from filters list
-        return [...prev.filter((f) => f !== filterValue)];
+        // - return 'All' if list will be empty otherwise
+        return prev.length > 1
+          ? [...prev.filter((f) => f !== filterValue)]
+          : ["All"];
       }
+      // return 'All' as only list item
       if (filterValue === "All") {
-        // all filters active
+        // replaces any other elements
         return [filterValue];
       }
       // add single filter to filters list

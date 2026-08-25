@@ -7,7 +7,7 @@ function Timeline() {
   const { filterList, activeItems, handleFilterChange } = useTimelineFilter();
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="timeline">
       <TimelineHeader
         filters={filterList}
         onFilterChange={handleFilterChange}

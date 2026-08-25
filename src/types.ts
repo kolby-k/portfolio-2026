@@ -94,7 +94,9 @@ export type ProjectCardProperties = {
   };
 };
 
-export const TIMELINE_TYPES = ["Work", "Education", "Launches"] as const;
+// Removed 'Launches' to focus more on the career / education aspects in Timeline
+// - projects already showcase Evolve which is main launch i want to share.
+export const TIMELINE_TYPES = ["Work", "Education", "Courses"] as const;
 
 export type TIMELINE_TYPES = (typeof TIMELINE_TYPES)[number];
 export type TimelineItemProperties = {
@@ -103,15 +105,16 @@ export type TimelineItemProperties = {
   description: string;
   details:
     | {
-        type: TIMELINE_TYPES;
-        role: string;
+        type: "Work";
+        company: string;
         endDate: string | null;
       }
     | {
-        type: TIMELINE_TYPES;
+        type: "Education";
+        endDate: string | null;
       }
     | {
-        type: TIMELINE_TYPES;
-        link?: string;
+        type: "Courses";
+        endDate: string | null;
       };
 };

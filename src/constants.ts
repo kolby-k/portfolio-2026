@@ -300,94 +300,98 @@ export const PROJECTS: ProjectShowcase[] = [
 ];
 
 export const TIMELINE: TimelineItemProperties[] = [
+  // {
+  //   date: "2025-05-28",
+  //   title: "Evolve Workout Tracker - iOS App Release",
+  //   description:
+  //     "Deployed my first app in Apple App store, Evolve, a workout tracking app.",
+  //   details: {
+  //     type: "Launches",
+  //     link: "/projects/evolve-workout-tracker",
+  //   },
+  // },
   {
-    date: "2025-05-28",
-    title: "Evolve Workout Tracker - iOS App Release",
-    description:
-      "Deployed my first app in Apple App store, Evolve, a workout tracking app.",
-    details: {
-      type: "Launches",
-      link: "/projects/evolve-workout-tracker",
-    },
-  },
-  {
-    date: "2024-07-08",
+    date: "2023-09-14",
     title: "Full-Stack Engineer Career Path",
     description:
       "Codecademy course focused on building full-stack web applications, covering front-end development, back-end services, and client-server integration.",
     details: {
-      type: "Education",
+      type: "Courses",
+      endDate: "2024-06-17",
     },
   },
   {
-    date: "2023-06-08",
+    date: "2022-12-22",
     title: "Data Scientist - Analytics Specialist",
     description:
       "Codecademy course focused on data analytics, statistics, probability, data visualization, and applying data to support decision-making.",
     details: {
-      type: "Education",
+      type: "Courses",
+      endDate: "2023-04-23",
     },
   },
   {
     date: "2022-10-20",
     title: "Project Management - Course (SAIT)",
     description:
-      "Codecademy course focused on building full-stack web applications, covering front-end development, back-end services, and client-server integration.",
+      "Completed SAIT’s Project Management Certificate, developing practical skills in project planning, stakeholder management, budgeting, risk management, and leadership aligned with PMI standards and best practices.",
     details: {
-      type: "Education",
+      type: "Courses",
+      endDate: "2023-01-08",
     },
   },
   {
     date: "2022-10-02",
-    title: "Business Link Alberta",
+    title: "Data Analyst",
     description:
       "Integrate and managing data pipelines, reporting, and backend processes including workflow automations.",
     details: {
       type: "Work",
-      role: "Data Analyst",
+      company: "Business Link Alberta",
       endDate: null,
     },
   },
   {
     date: "2021-05-12",
-    title: "Business Link Alberta",
+    title: "Business Support Officer",
     description:
       "First point of contact of support for clients to assist with business support inquiries.",
     details: {
       type: "Work",
-      role: "Business Support Officer",
-      endDate: "2022-10-01",
+      company: "Business Link Alberta",
+      endDate: "2022-10-02",
     },
   },
   {
     date: "2019-03-01",
-    title: "Telus - Customer Service Representative",
+    title: "Pure Fibre Technical Support",
     description:
       "Diagnosed and troubleshot a variety of internet-related issues virtually and in real time.",
     details: {
       type: "Work",
-      role: "Pure Fibre Technical Support",
+      company: "Telus",
       endDate: "2021-05-11",
     },
   },
   {
-    date: "2017-04-28",
+    date: "2014-09-03",
     title: "Bachelor of Business Administration - Economics",
     description: "Earned a BBA (Econ major) from Thompson Rivers University",
     details: {
       type: "Education",
+      endDate: "2017-04-28",
     },
   },
-  {
-    date: "2017-01-28",
-    title: "Beez Pleez - Kickstart Campaign",
-    description:
-      "A crowdfunding campaign that successfully raised 104% ($15,704) of the target in 30 days; 136 backers from 8 different countries contributed.",
-    details: {
-      type: "Launches",
-      link: "https://www.kickstarter.com/projects/408710899/beez-pleez-candles-with-a-cause",
-    },
-  },
+  // {
+  //   date: "2017-01-28",
+  //   title: "Beez Pleez - Kickstart Campaign",
+  //   description:
+  //     "A crowdfunding campaign that successfully raised 104% ($15,704) of the target in 30 days; 136 backers from 8 different countries contributed.",
+  //   details: {
+  //     type: "Launches",
+  //     link: "https://www.kickstarter.com/projects/408710899/beez-pleez-candles-with-a-cause",
+  //   },
+  // },
   {
     date: "2016-03-12",
     title: "Undergraduate Research Conference - Presenter",
@@ -395,6 +399,7 @@ export const TIMELINE: TimelineItemProperties[] = [
       "Represented TRU's School of Business by presenting economic research on Russia's macroeconomic history, for an audience of students and professors.",
     details: {
       type: "Education",
+      endDate: null,
     },
   },
 ];

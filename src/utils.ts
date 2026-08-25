@@ -44,3 +44,7 @@ export function getProjectTypeTagColor(type: ProjectType): TagColors {
   }
   return tagColor;
 }
+
+export function proper(string: string) {
+  return string[0].toUpperCase() + string.slice(1);
+}

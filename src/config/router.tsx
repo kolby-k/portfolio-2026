@@ -11,55 +11,61 @@ import NHLGoalScoring from "../pages/Projects/NHLGoalScoring";
 import WhatTheTemp from "../pages/Projects/WhatTheTemp";
 import MotionCharts from "../pages/Projects/MotionCharts";
 import GretzkyDashboard from "../pages/Projects/GretzkyDashboard";
+import AppLayout from "../pages/AppLayout";
 
 export const router = createBrowserRouter([
   {
-    element: <HomePage />,
-    index: true,
-  },
-  {
-    element: <ProjectListPage />,
-    path: "/projects",
-  },
-  {
-    element: <ProjectLayout />,
+    element: <AppLayout />,
     children: [
       {
-        element: <EvolveWorkoutTracker />,
-        path: "/projects/evolve-workout-tracker",
+        element: <HomePage />,
+        index: true,
       },
       {
-        element: <Summarize />,
-        path: "/projects/summarizer",
+        element: <ProjectListPage />,
+        path: "/projects",
       },
       {
-        element: <DeveloperToolkit />,
-        path: "/projects/developer-toolkit",
+        element: <ProjectLayout />,
+        children: [
+          {
+            element: <EvolveWorkoutTracker />,
+            path: "/projects/evolve-workout-tracker",
+          },
+          {
+            element: <Summarize />,
+            path: "/projects/summarizer",
+          },
+          {
+            element: <DeveloperToolkit />,
+            path: "/projects/developer-toolkit",
+          },
+          {
+            element: <GaltonBoard />,
+            path: "/projects/galton-board",
+          },
+          {
+            element: <WhatTheTemp />,
+            path: "/projects/what-the-temp",
+          },
+          {
+            element: <MotionCharts />,
+            path: "/projects/motion-charts",
+          },
+          {
+            element: <GretzkyDashboard />,
+            path: "/projects/gretzky-dashboard",
+          },
+          {
+            element: <NHLGoalScoring />,
+            path: "/projects/racing-bar-nhl-top-goals",
+          },
+        ],
       },
       {
-        element: <GaltonBoard />,
-        path: "/projects/galton-board",
-      },
-      {
-        element: <WhatTheTemp />,
-        path: "/projects/what-the-temp",
-      },
-      {
-        element: <MotionCharts />,
-        path: "/projects/motion-charts",
-      },
-      {
-        element: <GretzkyDashboard />,
-        path: "/projects/gretzky-dashboard",
-      },
-      {
-        element: <NHLGoalScoring />,
-        path: "/projects/racing-bar-nhl-top-goals",
+        element: <NotFound />,
+        path: "*",
       },
     ],
-  },
-  {
-    element: <NotFound />,
-    path: "*",
   },
 ]);

@@ -203,3 +203,118 @@
     font-size: 1rem;
   }
 }
+
+.filter_theme_blue {
+  border-color: var(--blue-tag-border);
+  background-color: var(--surface);
+
+  color: var(--blue-tag-text);
+  box-shadow: 0 0 10px 2px var(--blue-tag-shadow);
+}
+
+.filter_theme_green {
+  border-color: var(--green-tag-border);
+  background-color: var(--surface);
+
+  color: var(--green-tag-text);
+  box-shadow: 0 0 10px 2px var(--green-tag-shadow);
+}
+
+.filter_theme_orange {
+  background: var(--surface);
+  border-color: var(--orange-tag-border);
+  color: var(--orange-tag-text);
+  box-shadow: 0 0 10px 2pxvar (--orange-tag-shadow);
+}
+
+.filter_theme_purple {
+  background: var(--surface);
+  border-color: var(--purple-tag-border);
+  color: var(--purple-tag-text);
+  box-shadow: 0 0 10px 2pxvar (--purple-tag-shadow);
+}
+.filter_theme_base {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--purple-tag-text);
+  box-shadow: 0 0 8px 2px var(--surface-raised);
+}
+
+.wrapper_theme_blue {
+  border-color: var(--blue-tag-shadow);
+  background-color: var(--surface);
+
+  box-shadow: 0 0 10px 2px var(--blue-tag-shadow);
+}
+
+.wrapper_theme_green {
+  border-color: var(--green-tag-shadow);
+  background-color: var(--surface);
+
+  box-shadow: 0 0 10px 2px var(--green-tag-shadow);
+}
+
+.wrapper_theme_orange {
+  background: var(--surface);
+  border-color: var(--orange-tag-shadow);
+
+  box-shadow: 0 0 10px 2pxvar (--orange-tag-shadow);
+}
+.wrapper_theme_purple {
+  background: var(--surface);
+  border-color: var(--purple-tag-shadow);
+
+  box-shadow: 0 0 10px 2pxvar (--purple-tag-shadow);
+}
+.wrapper_theme_base {
+  background: var(--surface);
+  border-color: var(--border);
+
+  box-shadow: 0 0 8px 2px var(--surface-raised);
+}
+
+/* UPDATES */
+.custom_button {
+  border-radius: 6px;
+  cursor: pointer;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn_variant_default {
+  border: 1px solid var(--border);
+  background-color: var(--btn-surface);
+
+  color: var(--bg);
+}
+.btn_variant_link {
+  border: none;
+  background-color: transparent;
+
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.btn_size_xs {
+  font-size: 0.6rem;
+  padding: 0.35rem 0.65rem;
+}
+.btn_size_sm {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.75rem;
+}
+.btn_size_md {
+  font-size: 0.85rem;
+  padding: 0.45rem 0.8rem;
+}
+.btn_size_lg {
+  font-size: 0.95rem;
+  padding: 0.5rem 0.9rem;
+}
+.btn_size_xl {
+  font-size: 1.05rem;
+  padding: 0.5rem 0.9rem;
+}

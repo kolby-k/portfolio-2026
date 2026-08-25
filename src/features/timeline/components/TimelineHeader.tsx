@@ -4,7 +4,6 @@ import Kolby3D from "../../../assets/kolby-3d.png";
 import { LuCalendarRange } from "react-icons/lu";
 import { PiStudentFill } from "react-icons/pi";
 import { CgWorkAlt } from "react-icons/cg";
-import { HiRocketLaunch } from "react-icons/hi2";
 import { GrRadialSelected } from "react-icons/gr";
 import { TIMELINE_TYPES } from "../../../types";
 import type { FilterOptions } from "../timeline.types";
@@ -30,7 +29,7 @@ function TimelineHeader({ filters, onFilterChange }: TimelineHeaderProps) {
         <div className={styles.tagContainer}>
           <button
             key={`All`}
-            className={`${styles.filterTag} ${filters.includes("All") ? styles.filterTagActive : ""}`}
+            className={`${styles.filterTag} ${filters.includes("All") ? "filter_theme_blue" : styles.filterTagInactive}`}
             onClick={() => onFilterChange("All")}
           >
             All
@@ -39,18 +38,19 @@ function TimelineHeader({ filters, onFilterChange }: TimelineHeaderProps) {
           {TIMELINE_TYPES &&
             TIMELINE_TYPES.map((f) => {
               const isActive = filters.includes(f);
-              const Icon =
-                f === "Work" ? (
-                  <CgWorkAlt />
-                ) : f === "Launches" ? (
-                  <HiRocketLaunch />
-                ) : (
-                  <PiStudentFill />
-                );
+              const Icon = f === "Work" ? <CgWorkAlt /> : <PiStudentFill />;
+              const tagTheme =
+                f === "Work"
+                  ? "filter_theme_orange"
+                  : f === "Education"
+                    ? "filter_theme_green"
+                    : f === "Courses"
+                      ? "filter_theme_purple"
+                      : "filter_theme_blue";
               return (
                 <button
                   key={`${f}`}
-                  className={`${styles.filterTag} ${isActive ? styles.filterTagActive : ""}`}
+                  className={`${styles.filterTag} ${isActive ? tagTheme : styles.filterTagInactive}`}
                   onClick={() => onFilterChange(f)}
                 >
                   {f}

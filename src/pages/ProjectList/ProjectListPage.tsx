@@ -3,7 +3,7 @@ import NavButton from "../../components/NavButton";
 
 function ProjectListPage() {
   return (
-    <div className="page">
+    <div className="page-full">
       <NavButton title="Home" to="/" hint="back" />
       <ProjectList />
     </div>

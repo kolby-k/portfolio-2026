@@ -24,14 +24,13 @@
   padding: 0 2rem;
 
   max-width: 800px;
-  /* margin: auto; */
   gap: 1rem;
 
   z-index: 10;
   /* border: 1px solid orange; */
 }
 .header h2,
-p {
+.header p {
   padding: 0.25rem;
 }
 .calendar {
@@ -68,33 +67,26 @@ p {
   justify-content: flex-start;
   flex-wrap: wrap;
   grid-column: 1/-1;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 .filterTag {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   font-size: 1rem;
   font-weight: 300;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 10px;
-  border: 1px solid var(--border-subtle);
-  background-color: var(--surface-raised);
-
-  color: var(--text-primary);
-
-  cursor: default;
-
-  box-shadow: 0 0 20px 4px var(--surface-raised);
+  border: 1px solid;
   cursor: pointer;
 }
 .filterTagActive {
   font-weight: 500;
-  background-color: var(--primary-soft);
-  border-color: var(--primary);
 }
-.filterTagActive > svg {
-  color: var(--primary-bright);
+.filterTagInactive {
+  color: var(--text-primary);
+  background-color: var(--surface);
+  border-color: var(--border);
 }
 
 .kolbyWrapper {
@@ -121,7 +113,6 @@ p {
   width: 100%;
   min-height: calc(var(--item-height) * 2);
 
-  /* overflow: hidden; */
   flex: 1;
 
   /* border: 1px solid yellowgreen; */
@@ -152,7 +143,6 @@ p {
 }
 .timelineItems {
   display: grid;
-  /* grid-auto-rows: minmax(var(--item-height), fit-content); */
   gap: 1rem;
   height: 100%;
   position: relative;
@@ -178,9 +168,8 @@ p {
   background-color: var(--primary);
 }
 .timelineItemCard {
-  border: 1px solid var(--border);
+  border: 1px solid;
   border-radius: 6px;
-  background-color: var(--surface);
 
   display: grid;
   grid-template-columns: auto 1fr;
@@ -197,101 +186,117 @@ p {
 }
 
 .timelineItemDate {
-  width: 80px;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   font-family: "Raleway";
-  color: var(--primary-bright);
+  color: var(--text-secondary);
+  width: 3.5rem;
 }
 .timelineItemIcon {
-  height: auto;
+  height: 45px;
   width: 45px;
-  color: var(--glow);
   padding: 0.5rem;
   margin: 0.5rem;
-  border: 1px solid var(--border);
+  border: 1px solid;
   border-radius: 6px;
-  background-color: var(--border-subtle);
 }
 .timelineItemText {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  justify-content: start;
+  align-items: center;
+  text-align: left;
   color: var(--text-secondary);
 
-  padding: 0 0.5rem;
-}
-.timelineItemTitleRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  min-height: 30px;
-  gap: 0.5rem;
-  width: 100%;
+  margin-left: 80px;
 }
 .timelineItemTitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+.timelineItemSubTitle {
   font-size: 1.1rem;
-  color: var(--text-primary);
+  font-weight: 400;
+  color: var(--text-secondary);
+  position: relative;
+  margin-left: 1.5rem;
+  text-emphasis: italic;
+}
+.timelineItemSubTitle::before {
+  content: "-";
+  position: absolute;
+  left: -0.75rem;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .timelineItemDescription {
   font-family: "Raleway";
   font-weight: 300;
+  font-size: 1rem;
   color: var(--text-secondary);
   display: -webkit-box;
   line-clamp: 4;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
-  overflow-y: scroll;
-}
-.timelineItemTag {
-  justify-self: flex-end;
-  align-self: flex-start;
+  overflow: hidden;
+  height: 100px;
+  width: 100%;
+  grid-column: 1 / -1;
+  padding-top: 0.5rem;
 }
 
-.timelineItemTagSmall {
-  display: none;
-}
-.timelineItemDateLarge {
-  display: flex;
-  flex-direction: column;
+.timelineItemDateWrapper {
+  position: absolute;
+  display: grid;
+  justify-items: center;
   align-items: center;
+  align-content: center;
+  grid-template-columns: 80px;
+  background-color: var(--surface-raised);
+  height: 100%;
 }
-/* @media screen and (max-width: 768px) {
-  .timelineItems {
-    grid-auto-rows: calc(var(--item-height) * 1.2);
-  }
-} */
 
 @media screen and (max-width: 500px) {
   .kolbyWrapper {
     display: none;
   }
-  /* .timelineItems {
-    grid-auto-rows: calc(var(--item-height) * 1.3);
-  } */
 
   .timelineItemDescription {
-    font-size: 0.95rem;
-  }
-  .timelineItemTag {
-    display: none;
-  }
-  .timelineItemDateLarge {
-    display: none;
-  }
-  .timelineItemTagSmall {
-    display: block;
+    font-size: 0.9rem;
   }
 
   .timelineItemCard {
     gap: 0;
   }
-  .timelineItemIcon {
+
+  .timelineItemText {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto 1fr;
+
+    margin-left: 70px;
+  }
+  .timelineItemTitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.1;
+  }
+  .timelineItemSubTitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-left: 0;
+  }
+  .timelineItemDateWrapper {
+    grid-template-columns: 70px;
+  }
+  .timelineItemSubTitle::before {
     display: none;
   }
 
   .timelineItemDate {
-    width: 80px;
+    font-size: 0.9rem;
+    width: 3rem;
+    margin: 0 auto;
   }
 }

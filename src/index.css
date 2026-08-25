@@ -1,21 +1,73 @@
-:root {
-  --text: #6b6375;
+:root,
+:root[data-theme="light"] {
+  /* Backgrounds */
+  --bg: #f7f9fc;
+  --bg-deep: #eef2f7;
+  --surface: #ffffff;
+  --surface-raised: #f9fafc;
+  --surface-hover: #eef3f9;
+  --btn-surface: #171a1d;
 
-  --bg: #fff;
-  --border: #e5e4e7;
+  /* Borders / dividers */
+  --border: #c7d2e0;
+  --border-subtle: #dce3ec;
+  --divider: #b8c2cf;
 
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
+  /* Text */
+  --text-primary: #101722;
+  --text-secondary: #4b5563;
+  --text-muted: #7a8492;
+  --text-disabled: #b7bec8;
 
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* Primary blue */
+  --primary: #0872e4;
+  --primary-bright: #1698ff;
+  --primary-dark: #0458cd;
+  --primary-soft: #dbeeff;
+
+  /* Blue glow */
+  --glow: rgba(22, 152, 255, 0.25);
+  --glow-soft: rgba(22, 152, 255, 0.1);
+
+  /* Interactive states */
+  --focus: #0872e4;
+  --hover-overlay: rgba(0, 0, 0, 0.04);
+  --active-overlay: rgba(8, 114, 228, 0.1);
+
+  /* Blue */
+  --blue-tag-bg: #e7f2ff;
+  --blue-tag-border: #a8cff5;
+  --blue-tag-text: #075cad;
+  --blue-tag-shadow: rgba(22, 152, 255, 0.1);
+
+  /* Green */
+  --green-tag-bg: #e7f6ed;
+  --green-tag-border: #a7d5b8;
+  --green-tag-text: #267447;
+  --green-tag-shadow: rgba(84, 207, 132, 0.08);
+
+  /* Purple */
+  --purple-tag-bg: #f2e9fb;
+  --purple-tag-border: #cfafe9;
+  --purple-tag-text: #7542a2;
+  --purple-tag-shadow: rgba(181, 104, 255, 0.08);
+
+  /* Orange */
+  --orange-tag-bg: #fff1df;
+  --orange-tag-border: #e5bd88;
+  --orange-tag-text: #9a5b13;
+  --orange-tag-shadow: rgba(235, 158, 73, 0.08);
+
+  /* Warning */
+  --warning-bg: #fff0f0;
+  --warning-text: #a53a32;
+  --warning-border: #e2aaa5;
 
   font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
 
   font: 18px;
   color-scheme: light dark;
-  color: var(--text);
+  color: var(--text-primary);
   background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,102 +79,76 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #eff1f4;
-    --text-secondary: #e4e7ed;
-    --text-highlight: #ffffff;
+:root[data-theme="dark"] {
+  /* Backgrounds */
+  --bg: #02060f;
+  --bg-deep: #010205;
+  --surface: #0d0f15;
+  --surface-raised: #13151a;
+  --surface-hover: #19212e;
+  --btn-surface: #f4f6fa;
 
-    --bg: oklch(0.05 0.03 104.05);
-    --bg-secondary: oklch(0.1 0.1 264.05);
+  /* Borders / dividers */
+  --border: #27344b;
+  --border-subtle: #1c2533;
+  --divider: #303844;
 
-    --border: #2e303a;
+  /* Text */
+  --text-primary: #f4f6fa;
+  --text-secondary: #b5bbc5;
+  --text-muted: #6b7482;
+  --text-disabled: #343b48;
 
-    --card-border: #4f6bf66e;
+  /* Primary blue */
+  --primary: #0872e4;
+  --primary-bright: #1698ff;
+  --primary-dark: #0458cd;
+  --primary-soft: #12345f;
 
-    --card-border-surface-1: #556099;
-    --card-border-surface-2: var(--bg-secondary);
+  /* Blue glow */
+  --glow: rgba(22, 152, 255, 0.4);
+  --glow-soft: rgba(22, 152, 255, 0.15);
 
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
+  /* Interactive states */
+  --focus: #1698ff;
+  --hover-overlay: rgba(255, 255, 255, 0.04);
+  --active-overlay: rgba(22, 152, 255, 0.1);
 
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  /* Blue */
+  --blue-tag-bg: #102b52;
+  --blue-tag-border: #1d4f82;
+  --blue-tag-text: #8fc7ff;
+  --blue-tag-shadow: rgba(22, 152, 255, 0.12);
 
-    --blue-shadow: #2c44798d;
-    --blue-shadow-2: #374c7bba;
+  /* Green */
+  --green-tag-bg: #163b2b;
+  --green-tag-border: #275b43;
+  --green-tag-text: #83dda5;
+  --green-tag-shadow: rgba(84, 207, 132, 0.1);
 
-    --green-shadow: #2c792c8d;
+  /* Purple */
+  --purple-tag-bg: #34204f;
+  --purple-tag-border: #59377d;
+  --purple-tag-text: #d4a0ff;
+  --purple-tag-shadow: rgba(181, 104, 255, 0.1);
 
-    --purple-shadow: #482c798d;
+  /* Orange */
+  --orange-tag-bg: #493019;
+  --orange-tag-border: #76502a;
+  --orange-tag-text: #f3bd7a;
+  --orange-tag-shadow: rgba(235, 158, 73, 0.1);
 
-    --orange-shadow: #796c2c8d;
+  --warning-bg: #491919;
+  --warning-text: #f3bd7a;
+  --warning-border: #762a2a;
 
-    /* Backgrounds */
-    --bg: #02060f;
-    --bg-deep: #010205;
-    --surface: #0d0f15;
-    --surface-raised: #13151a;
-    --surface-hover: #19212e;
-
-    /* Borders / dividers */
-    --border: #27344b;
-    --border-subtle: #1c2533;
-    --divider: #303844;
-
-    /* Text */
-    --text-primary: #f4f6fa;
-    --text-secondary: #b5bbc5;
-    --text-muted: #6b7482;
-    --text-disabled: #343b48;
-
-    /* Primary blue */
-    --primary: #0872e4;
-    --primary-bright: #1698ff;
-    --primary-dark: #0458cd;
-    --primary-soft: #12345f;
-
-    /* Blue glow */
-    --glow: rgba(22, 152, 255, 0.4);
-    --glow-soft: rgba(22, 152, 255, 0.15);
-
-    /* Interactive states */
-    --focus: #1698ff;
-    --hover-overlay: rgba(255, 255, 255, 0.04);
-    --active-overlay: rgba(22, 152, 255, 0.1);
-
-    /* Blue */
-    --blue-tag-bg: #102b52;
-    --blue-tag-border: #1d4f82;
-    --blue-tag-text: #8fc7ff;
-    --blue-tag-shadow: rgba(22, 152, 255, 0.12);
-
-    /* Green */
-    --green-tag-bg: #163b2b;
-    --green-tag-border: #275b43;
-    --green-tag-text: #83dda5;
-    --green-tag-shadow: rgba(84, 207, 132, 0.1);
-
-    /* Purple */
-    --purple-tag-bg: #34204f;
-    --purple-tag-border: #59377d;
-    --purple-tag-text: #d4a0ff;
-    --purple-tag-shadow: rgba(181, 104, 255, 0.1);
-
-    /* Orange */
-    --orange-tag-bg: #493019;
-    --orange-tag-border: #76502a;
-    --orange-tag-text: #f3bd7a;
-    --orange-tag-shadow: rgba(235, 158, 73, 0.1);
-
-    --warning-bg: #491919;
-    --warning-text: #f3bd7a;
-    --warning-border: #762a2a;
-  }
+  color: var(--text-primary);
+  background: var(--bg);
 }
+
 html {
   scrollbar-gutter: stable;
+  scroll-behavior: smooth;
 }
 *,
 *::before,
@@ -145,9 +171,10 @@ ul {
 }
 
 .page-full {
-  width: min(100%, 1500px);
+  width: min(calc(100% - 2rem), 1500px);
   margin-inline: auto;
-  overflow-x: hidden;
+
+  position: relative;
 }
 
 .description {
@@ -188,7 +215,7 @@ ul {
   font-family: "Raleway";
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--text-highlight);
+  color: var(--text-primary);
   display: inline;
   margin-right: 1rem;
   padding: 0.25rem;
@@ -275,4 +302,53 @@ ul {
 
 .relative {
   position: relative;
+}
+
+.logo {
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    var(--primary-bright),
+    var(--primary-dark)
+  );
+
+  mask: url("./assets/kkLogo.svg") center / contain no-repeat;
+  -webkit-mask: url("./assets/kkLogo.svg") center / contain no-repeat;
+}
+
+.logo_small {
+  width: 3rem;
+  height: 3rem;
+}
+.logo_medium {
+  width: 4rem;
+  height: 4rem;
+}
+.logo_large {
+  width: 5rem;
+  height: 5rem;
+}
+
+.ghost-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-transition {
+  animation: page-enter 200ms ease-out;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
 }
