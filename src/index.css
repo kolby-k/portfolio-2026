@@ -171,9 +171,9 @@ ul {
 }
 
 .page-full {
-  width: min(calc(100% - 2rem), 1500px);
+  width: min(90%, 1500px);
   margin-inline: auto;
-
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -350,5 +350,14 @@ ul {
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
+  }
+}
+
+.hide-mobile {
+  display: none;
+}
+@media screen and (min-width: 500px) {
+  .hide-mobile {
+    display: inherit;
   }
 }

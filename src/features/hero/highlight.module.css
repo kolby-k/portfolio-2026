@@ -4,20 +4,18 @@
   display: grid;
 
   width: 100%;
-  /* grid-template-columns: 2px auto;
-  grid-template-rows:
-    minmax(calc(var(--slot-distance) * 3), auto)
-    repeat(2, minmax(var(--bottom-grid-row-height), auto)); */
+
   grid-template-areas:
     "vBar highlight"
     "tags tags"
     "button button";
   align-items: center;
   justify-items: flex-start;
-  gap: 1rem;
+  gap: 1rem 1.5rem;
 
   padding-left: 1rem;
   position: relative;
+  /* border: 1px solid red; */
 }
 .highlightViewport {
   position: relative;
@@ -29,11 +27,8 @@
   width: 100%;
   gap: 1rem;
   padding: 1rem 0;
-  min-width: min(300px, 50vw);
 
   grid-area: highlight;
-  margin-right: 1rem;
-  /* border: 1px solid red; */
 }
 
 .vScrollLine {

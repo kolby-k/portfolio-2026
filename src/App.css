@@ -1,3 +1,9 @@
+.app {
+  max-width: 100svw;
+}
+#timeline {
+  scroll-margin-top: 75px;
+}
 .page-back-button,
 .nav-button {
   text-decoration: none;
