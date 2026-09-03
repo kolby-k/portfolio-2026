@@ -6,6 +6,7 @@ function AppLayout() {
   const location = useLocation();
   // animate page transition for basePath changes
   const basePath = location.pathname.split("/").filter(Boolean)[0] ?? "home";
+
   return (
     <div className="app">
       <ScrollHandler />

@@ -125,7 +125,7 @@ function Highlight({
 
       cleanUpNodes();
     };
-  }, [projects, direction]);
+  }, [projects, direction, animationComplete]);
 
   if (projects.length === 0) return null;
 
@@ -136,44 +136,46 @@ function Highlight({
 
   return (
     <div className={styles.skillHighlight}>
-      <span
-        key={currentProject.id}
-        className={`${styles.vScrollLine} ${
-          showVDotAnimation ? styles.vScrollDotAnimation : ""
-        }`}
-        style={
-          {
-            "--animation-duration": `${ANIMATION_DURATION ?? 500}ms`,
-          } as React.CSSProperties
-        }
-      >
-        <span className={`${styles.vScrollDot}`}></span>
-        <span className={`${styles.vScrollDot}`}></span>
-        <span className={`${styles.vScrollDot}`}></span>
-      </span>
-      <div className={styles.highlightViewport}>
-        {projects.map((project) => {
-          return (
-            <h2
-              key={project.id}
-              className={styles.highlightTitle}
-              ref={(node) => {
-                if (node) {
-                  projectsNodeRef.current.set(project.id, node);
-                } else {
-                  projectsNodeRef.current.delete(project.id);
-                }
-              }}
-            >
-              <span className={styles.highlightTitleText}>
-                {project.highlight}
-              </span>
-            </h2>
-          );
-        })}
-      </div>
+      <div className={styles.skillHighlightScroll}>
+        <span
+          key={currentProject.id}
+          className={`${styles.vScrollLine} ${
+            showVDotAnimation ? styles.vScrollDotAnimation : ""
+          }`}
+          style={
+            {
+              "--animation-duration": `${ANIMATION_DURATION ?? 500}ms`,
+            } as React.CSSProperties
+          }
+        >
+          <span className={`${styles.vScrollDot}`}></span>
+          <span className={`${styles.vScrollDot}`}></span>
+          <span className={`${styles.vScrollDot}`}></span>
+        </span>
 
-      <div className={styles.skillTags}>
+        <div className={styles.highlightViewport}>
+          {projects.map((project) => {
+            return (
+              <h2
+                key={project.id}
+                className={styles.highlightTitle}
+                ref={(node) => {
+                  if (node) {
+                    projectsNodeRef.current.set(project.id, node);
+                  } else {
+                    projectsNodeRef.current.delete(project.id);
+                  }
+                }}
+              >
+                <span className={styles.highlightTitleText}>
+                  {project.highlight}
+                </span>
+              </h2>
+            );
+          })}
+        </div>
+      </div>
+      <div className={`${styles.skillTags} hide-mobile`}>
         {currentProject.skills.map((label) => (
           <IconTag
             key={`${currentProject.id}-${label}`}
@@ -183,7 +185,10 @@ function Highlight({
         ))}
       </div>
 
-      <Link to={currentProject.path} className={styles.viewProjectButton}>
+      <Link
+        to={currentProject.path}
+        className={`${styles.viewProjectButton} hide-mobile`}
+      >
         View more projects <BsArrowRight style={{ paddingTop: 4 }} />
       </Link>
     </div>

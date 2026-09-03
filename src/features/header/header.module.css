@@ -46,15 +46,33 @@
 .menuList {
   display: grid;
   padding: 1rem;
-  grid-template-columns: 50%;
+  grid-template-columns: 100%;
   justify-content: start;
   justify-items: flex-start;
+  align-content: start;
+  row-gap: 0.25rem;
 }
-.menuListDivider {
-  background-color: var(--divider);
-  height: 1px;
-  width: 50%;
-  margin: 0.5rem auto;
+
+.mobileMenuListItem {
+  border-radius: 6px;
+  cursor: pointer;
+
+  display: inline-flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-size: 0.75rem;
+  padding: 0.4rem 0.75rem;
+
+  width: 100%;
+
+  color: var(--text-primary);
+  background-color: transparent;
+  border: none;
+}
+.mobileListItemActive {
+  background-color: var(--glow-soft) !important;
 }
 .menuMobileIcon {
   font-size: 1.2rem;

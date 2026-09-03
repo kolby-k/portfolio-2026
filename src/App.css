@@ -35,7 +35,7 @@
 }
 
 .icon-tag {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
@@ -46,7 +46,7 @@
   border: 1px solid var(--border-subtle);
   background-color: var(--surface-raised);
 
-  color: var(--text-primary);
+  color: var(--text-secondary);
 
   cursor: default;
 
@@ -301,6 +301,14 @@
   background-color: transparent;
 
   color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.btn_variant_ghost {
+  border: none;
+  background-color: transparent;
+
+  color: var(--text-primary);
   font-weight: 500;
 }
 

@@ -21,7 +21,7 @@ function CustomButton({
   return (
     <button
       onClick={handleClick}
-      className={`custom_button btn_variant_${variant} btn_size_${size} ${style}`}
+      className={` ${style ? style : `custom_button btn_variant_${variant} btn_size_${size}`}`}
     >
       {children}
     </button>

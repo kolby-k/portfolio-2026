@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import styles from "./hero.module.css";
 import ProjectCard from "./componenets/ProjectCard";
 import Highlight from "./componenets/Highlight";
@@ -67,6 +67,9 @@ function Hero() {
     setProjectList(reorderedProjects);
   }
 
+  const animationComplete = useCallback(() => {
+    setIsAnimating(false);
+  }, []);
   return (
     <div className={styles.heroContainer}>
       <div className={styles.heroContent}>
@@ -84,7 +87,7 @@ function Hero() {
           projects={projectList}
           projectsNodeRef={projectNodes}
           previousPOSRef={previousPositions}
-          animationComplete={() => setIsAnimating(false)}
+          animationComplete={animationComplete}
           direction={direction}
         />
       </div>

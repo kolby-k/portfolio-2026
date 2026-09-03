@@ -2,7 +2,7 @@ import styles from "../timeline.module.css";
 
 import Kolby3D from "../../../assets/kolby-3d.png";
 import { LuCalendarRange } from "react-icons/lu";
-import { PiStudentFill } from "react-icons/pi";
+import { PiStudentFill, PiCertificateLight } from "react-icons/pi";
 import { CgWorkAlt } from "react-icons/cg";
 import { GrRadialSelected } from "react-icons/gr";
 import { TIMELINE_TYPES } from "../../../types";
@@ -38,13 +38,20 @@ function TimelineHeader({ filters, onFilterChange }: TimelineHeaderProps) {
           {TIMELINE_TYPES &&
             TIMELINE_TYPES.map((f) => {
               const isActive = filters.includes(f);
-              const Icon = f === "Work" ? <CgWorkAlt /> : <PiStudentFill />;
+              const Icon =
+                f === "Work" ? (
+                  <CgWorkAlt />
+                ) : f === "Education" ? (
+                  <PiStudentFill />
+                ) : (
+                  <PiCertificateLight />
+                );
               const tagTheme =
                 f === "Work"
                   ? "filter_theme_orange"
                   : f === "Education"
                     ? "filter_theme_green"
-                    : f === "Courses"
+                    : f === "Certificates"
                       ? "filter_theme_purple"
                       : "filter_theme_blue";
               return (

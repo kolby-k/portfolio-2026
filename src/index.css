@@ -1,5 +1,6 @@
-:root,
 :root[data-theme="light"] {
+  color-scheme: light;
+
   /* Backgrounds */
   --bg: #f7f9fc;
   --bg-deep: #eef2f7;
@@ -62,24 +63,11 @@
   --warning-bg: #fff0f0;
   --warning-text: #a53a32;
   --warning-border: #e2aaa5;
-
-  font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
-
-  font: 18px;
-  color-scheme: light dark;
-  color: var(--text-primary);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (min-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
 :root[data-theme="dark"] {
+  color-scheme: dark;
+
   /* Backgrounds */
   --bg: #02060f;
   --bg-deep: #010205;
@@ -141,14 +129,22 @@
   --warning-bg: #491919;
   --warning-text: #f3bd7a;
   --warning-border: #762a2a;
+}
+:root {
+  font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
 
+  font-size: 16px;
   color: var(--text-primary);
   background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
 html {
   scrollbar-gutter: stable;
   scroll-behavior: smooth;
+  background-color: var(--bg);
 }
 *,
 *::before,
@@ -163,6 +159,7 @@ ul {
 #root {
   width: 100%;
   min-height: 100svh;
+  background: var(--bg);
 }
 
 .page {
@@ -186,9 +183,9 @@ ul {
 .divider {
   background: linear-gradient(
     to left,
-    transparent 10%,
+    transparent,
     var(--border-subtle),
-    transparent 85%
+    transparent
   );
   height: 1px;
   width: 100%;
@@ -354,10 +351,10 @@ ul {
 }
 
 .hide-mobile {
-  display: none;
+  display: none !important;
 }
 @media screen and (min-width: 500px) {
   .hide-mobile {
-    display: inherit;
+    display: inherit !important;
   }
 }

@@ -96,7 +96,7 @@ export type ProjectCardProperties = {
 
 // Removed 'Launches' to focus more on the career / education aspects in Timeline
 // - projects already showcase Evolve which is main launch i want to share.
-export const TIMELINE_TYPES = ["Work", "Education", "Courses"] as const;
+export const TIMELINE_TYPES = ["Education", "Work", "Certificates"] as const;
 
 export type TIMELINE_TYPES = (typeof TIMELINE_TYPES)[number];
 export type TimelineItemProperties = {
@@ -114,7 +114,7 @@ export type TimelineItemProperties = {
         endDate: string | null;
       }
     | {
-        type: "Courses";
+        type: "Certificates";
         endDate: string | null;
       };
 };

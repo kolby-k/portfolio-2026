@@ -1,88 +1,54 @@
-import { useNavigate } from "react-router-dom";
-import CustomButton from "../../components/CustomButton";
+import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../components/Logo";
 import useTheme from "../../hooks/useTheme";
-import { proper } from "../../utils";
 import styles from "./header.module.css";
-import { GoSun, GoMoon } from "react-icons/go";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { useState } from "react";
-import { CiViewTimeline, CiSquareChevRight } from "react-icons/ci";
+import type { HeaderPathOptions } from "./types";
+import DesktopMenu from "./components/DesktopMenu";
+import MobileMenu from "./components/MobileMenu";
 
 function Header() {
-  const [menuVisible, setMenuVisible] = useState<boolean>(false);
-
   const { theme, isDark, toggleTheme } = useTheme();
 
   const nav = useNavigate();
+  const { pathname, hash } = useLocation();
 
-  const handleNavigation = (path: "/projects" | "/#timeline") => {
-    setMenuVisible(false);
+  const handleNavigation = (path: HeaderPathOptions) => {
     return nav(path);
   };
+  const activePath = getActiveHeaderPath(pathname, hash);
+
   return (
     <div className={styles.header}>
       <div className={styles.innerWrapper}>
         <Logo size={"small"} style={styles.logo} />
-
-        <div className={styles.links}>
-          <CustomButton
-            handleClick={() => handleNavigation("/projects")}
-            variant="link"
-            size="lg"
-          >
-            All Projects
-          </CustomButton>
-          <CustomButton
-            handleClick={() => handleNavigation("/#timeline")}
-            variant="link"
-            size="lg"
-          >
-            Timeline
-          </CustomButton>
-        </div>
-        <div className={styles.linksMobile}>
-          <CustomButton handleClick={() => setMenuVisible((prev) => !prev)}>
-            <RxHamburgerMenu />
-          </CustomButton>
-          {menuVisible && (
-            <div className={styles.menuWrapper}>
-              <div className={styles.menuThemeSection}>
-                <h4>Theme</h4>
-                <CustomButton handleClick={toggleTheme} size="sm">
-                  {proper(theme)} {isDark ? <GoMoon /> : <GoSun />}
-                </CustomButton>
-              </div>
-              <div className={styles.menuList}>
-                <CustomButton
-                  handleClick={() => handleNavigation("/projects")}
-                  variant="link"
-                  size="sm"
-                >
-                  <CiSquareChevRight className={styles.menuMobileIcon} />
-                  All Projects
-                </CustomButton>
-                <span className={styles.menuListDivider}> </span>
-                <CustomButton
-                  handleClick={() => handleNavigation("/#timeline")}
-                  variant="link"
-                  size="sm"
-                >
-                  <CiViewTimeline className={styles.menuMobileIcon} />
-                  Timeline
-                </CustomButton>
-              </div>
-            </div>
-          )}
-        </div>
-        <span className="hide-mobile">
-          <CustomButton handleClick={toggleTheme} size="sm">
-            {proper(theme)} {isDark ? <GoMoon /> : <GoSun />}
-          </CustomButton>
-        </span>
+        <DesktopMenu
+          handleNavigation={handleNavigation}
+          theme={theme}
+          isDark={isDark}
+          toggleTheme={toggleTheme}
+          activePath={activePath}
+        />
+        <MobileMenu
+          handleNavigation={handleNavigation}
+          theme={theme}
+          isDark={isDark}
+          toggleTheme={toggleTheme}
+          activePath={activePath}
+        />
       </div>
     </div>
   );
 }
 
 export default Header;
+
+function getActiveHeaderPath(
+  path: string,
+  hash: string,
+): HeaderPathOptions | null {
+  const pathWithHash = path + hash;
+  if (pathWithHash === "/") return pathWithHash as HeaderPathOptions;
+  if (pathWithHash === "/#timeline") return pathWithHash as HeaderPathOptions;
+  if (pathWithHash === "/projects") return pathWithHash as HeaderPathOptions;
+  return null;
+}

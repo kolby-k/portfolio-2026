@@ -44,7 +44,7 @@ function TimelineItem({ data }: { data: TimelineItemProperties }) {
       //   />
       // );
       break;
-    case "Courses":
+    case "Certificates":
       subTitle = null;
       endDate = data.details.endDate
         ? new Date(data.details.endDate).toLocaleDateString(undefined, {

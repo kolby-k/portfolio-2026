@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useLayoutEffect, useState, type ReactNode } from "react";
 import {
   STORAGE_KEY,
   ThemeContext,
@@ -10,7 +10,7 @@ import { getInitialTheme } from "../hooks/useTheme";
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);

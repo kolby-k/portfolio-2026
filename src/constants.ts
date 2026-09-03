@@ -316,7 +316,7 @@ export const TIMELINE: TimelineItemProperties[] = [
     description:
       "Codecademy course focused on building full-stack web applications, covering front-end development, back-end services, and client-server integration.",
     details: {
-      type: "Courses",
+      type: "Certificates",
       endDate: "2024-06-17",
     },
   },
@@ -326,20 +326,20 @@ export const TIMELINE: TimelineItemProperties[] = [
     description:
       "Codecademy course focused on data analytics, statistics, probability, data visualization, and applying data to support decision-making.",
     details: {
-      type: "Courses",
+      type: "Certificates",
       endDate: "2023-04-23",
     },
   },
-  {
-    date: "2022-10-20",
-    title: "Project Management - Course (SAIT)",
-    description:
-      "Completed SAIT’s Project Management Certificate, developing practical skills in project planning, stakeholder management, budgeting, risk management, and leadership aligned with PMI standards and best practices.",
-    details: {
-      type: "Courses",
-      endDate: "2023-01-08",
-    },
-  },
+  // {
+  //   date: "2022-10-20",
+  //   title: "Project Management - Course (SAIT)",
+  //   description:
+  //     "Completed SAIT’s Project Management Certificate, developing practical skills in project planning, stakeholder management, budgeting, risk management, and leadership aligned with PMI standards and best practices.",
+  //   details: {
+  //     type: "Courses",
+  //     endDate: "2023-01-08",
+  //   },
+  // },
   {
     date: "2022-10-02",
     title: "Data Analyst",
